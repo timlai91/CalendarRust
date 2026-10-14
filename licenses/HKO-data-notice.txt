@@ -1,0 +1,23 @@
+香港天文台曆表資料來源及權利聲明
+
+來源：香港天文台（Hong Kong Observatory）、香港特別行政區政府及 DATA.GOV.HK。
+原始數據的知識產權屬香港特別行政區政府及香港天文台所有。
+本專案依 DATA.GOV.HK 使用條款，保留來源及權利歸屬，
+擷取公曆／農曆轉換事實與節氣名稱作離線對照及經使用者核准的校正。
+
+數據集：
+https://data.gov.hk/tc-data/dataset/hk-hko-rss-gregorian-lunar-calendar-conversion-table
+原始逐年文字表：
+https://www.hko.gov.hk/tc/gts/time/calendar/text/files/T2026c.txt
+（各年份原始 URL、取得時間及 SHA-256 見 hko-manifest.json。）
+使用條款：
+https://data.gov.hk/en/terms-and-conditions
+2026-10-14 查核條款為 Version 1.2，last updated 26 May 2025。
+
+條款容許在遵守來源、知識產權歸屬及其他條件下，免費作商業及非商業再用。
+資料按 AS IS 提供，政府及有關機構不保證準確、完整或適用性。
+本應用程式非香港天文台或香港政府產品，不暗示其背書。
+UTC+08:00 的現代民用日期對照不代表還原各地歷史法定時間或各流派規則。
+
+原始 LunarData JSON 與歷史算法候選值均保留；採用值及原因另記於 corrections.json。
+與核准 HKO 基準一致不等於所有校正已由第三個獨立來源再次驗證。

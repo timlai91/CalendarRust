@@ -1,0 +1,9 @@
+{
+  "oracle": "Hong Kong Observatory / Government of the Hong Kong SAR / DATA.GOV.HK; UTC+08:00; approved adoption AND comparison baseline, not third-source revalidation",
+  "fixture_sha256": "a2a063260faa13e86795786122d9954486e5da0c3d1e4a99204e5a0c7c67a0cc",
+  "implementation_sha256": "8a28a52981bdf122e1b75ac930aa764706d5e3ff787eed2db0760d61a32dd72e",
+  "checked_days": 50770,
+  "lunar_differences": [],
+  "solar_term_differences": [],
+  "quarantined_solar_term_days": []
+}

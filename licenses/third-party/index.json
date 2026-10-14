@@ -1,0 +1,3509 @@
+{
+  "target": "x86_64-pc-windows-msvc",
+  "lock_sha256": "2aa41474f33c71e343c28e42b212847a040badcc1ed79f194fef24df2e507680",
+  "packages": [
+    {
+      "name": "ab_glyph",
+      "repository": "https://github.com/alexheretic/ab-glyph",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "a6cba85bc92e0cff7a450b1d873c0eaa2e9fc96bf472df0247a26bec77bf3ff9",
+          "path": "ab_glyph-0.2.32\\LICENSE"
+        }
+      ],
+      "license": "Apache-2.0",
+      "version": "0.2.32"
+    },
+    {
+      "name": "ab_glyph_rasterizer",
+      "repository": "https://github.com/alexheretic/ab-glyph",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "a6cba85bc92e0cff7a450b1d873c0eaa2e9fc96bf472df0247a26bec77bf3ff9",
+          "path": "ab_glyph_rasterizer-0.1.10\\LICENSE"
+        }
+      ],
+      "license": "Apache-2.0",
+      "version": "0.1.10"
+    },
+    {
+      "name": "accesskit",
+      "repository": "https://github.com/AccessKit/accesskit",
+      "files": [
+        {
+          "origin": "https://raw.githubusercontent.com/AccessKit/accesskit/daf5fafd63c42f62cc824a1f72e17aff1d102108/LICENSE-APACHE",
+          "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+          "path": "accesskit-0.19.0\\LICENSE-APACHE"
+        },
+        {
+          "origin": "https://raw.githubusercontent.com/AccessKit/accesskit/daf5fafd63c42f62cc824a1f72e17aff1d102108/LICENSE-MIT",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+          "path": "accesskit-0.19.0\\LICENSE-MIT"
+        },
+        {
+          "origin": "https://raw.githubusercontent.com/AccessKit/accesskit/daf5fafd63c42f62cc824a1f72e17aff1d102108/LICENSE.chromium",
+          "sha256": "845022e0c1db1abb41a6ba4cd3c4b674ec290f3359d9d3c78ae558d4c0ed9308",
+          "path": "accesskit-0.19.0\\LICENSE.chromium"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "0.19.0"
+    },
+    {
+      "name": "accesskit_consumer",
+      "repository": "https://github.com/AccessKit/accesskit",
+      "files": [
+        {
+          "origin": "https://raw.githubusercontent.com/AccessKit/accesskit/daf5fafd63c42f62cc824a1f72e17aff1d102108/LICENSE-APACHE",
+          "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+          "path": "accesskit_consumer-0.28.0\\LICENSE-APACHE"
+        },
+        {
+          "origin": "https://raw.githubusercontent.com/AccessKit/accesskit/daf5fafd63c42f62cc824a1f72e17aff1d102108/LICENSE-MIT",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+          "path": "accesskit_consumer-0.28.0\\LICENSE-MIT"
+        },
+        {
+          "origin": "https://raw.githubusercontent.com/AccessKit/accesskit/daf5fafd63c42f62cc824a1f72e17aff1d102108/LICENSE.chromium",
+          "sha256": "845022e0c1db1abb41a6ba4cd3c4b674ec290f3359d9d3c78ae558d4c0ed9308",
+          "path": "accesskit_consumer-0.28.0\\LICENSE.chromium"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "0.28.0"
+    },
+    {
+      "name": "accesskit_windows",
+      "repository": "https://github.com/AccessKit/accesskit",
+      "files": [
+        {
+          "origin": "https://raw.githubusercontent.com/AccessKit/accesskit/daf5fafd63c42f62cc824a1f72e17aff1d102108/LICENSE-APACHE",
+          "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+          "path": "accesskit_windows-0.27.0\\LICENSE-APACHE"
+        },
+        {
+          "origin": "https://raw.githubusercontent.com/AccessKit/accesskit/daf5fafd63c42f62cc824a1f72e17aff1d102108/LICENSE-MIT",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+          "path": "accesskit_windows-0.27.0\\LICENSE-MIT"
+        },
+        {
+          "origin": "https://raw.githubusercontent.com/AccessKit/accesskit/daf5fafd63c42f62cc824a1f72e17aff1d102108/LICENSE.chromium",
+          "sha256": "845022e0c1db1abb41a6ba4cd3c4b674ec290f3359d9d3c78ae558d4c0ed9308",
+          "path": "accesskit_windows-0.27.0\\LICENSE.chromium"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "0.27.0"
+    },
+    {
+      "name": "accesskit_winit",
+      "repository": "https://github.com/AccessKit/accesskit",
+      "files": [
+        {
+          "origin": "https://raw.githubusercontent.com/AccessKit/accesskit/daf5fafd63c42f62cc824a1f72e17aff1d102108/LICENSE-APACHE",
+          "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+          "path": "accesskit_winit-0.27.0\\LICENSE-APACHE"
+        },
+        {
+          "origin": "https://raw.githubusercontent.com/AccessKit/accesskit/daf5fafd63c42f62cc824a1f72e17aff1d102108/LICENSE-MIT",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+          "path": "accesskit_winit-0.27.0\\LICENSE-MIT"
+        },
+        {
+          "origin": "https://raw.githubusercontent.com/AccessKit/accesskit/daf5fafd63c42f62cc824a1f72e17aff1d102108/LICENSE.chromium",
+          "sha256": "845022e0c1db1abb41a6ba4cd3c4b674ec290f3359d9d3c78ae558d4c0ed9308",
+          "path": "accesskit_winit-0.27.0\\LICENSE.chromium"
+        }
+      ],
+      "license": "Apache-2.0",
+      "version": "0.27.0"
+    },
+    {
+      "name": "adler2",
+      "repository": "https://github.com/oyvindln/adler2",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "861399f8c21c042b110517e76dc6b63a2b334276c8cf17412fc3c8908ca8dc17",
+          "path": "adler2-2.0.1\\LICENSE-0BSD"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "8ada45cd9f843acf64e4722ae262c622a2b3b3007c7310ef36ac1061a30f6adb",
+          "path": "adler2-2.0.1\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+          "path": "adler2-2.0.1\\LICENSE-MIT"
+        }
+      ],
+      "license": "0BSD OR MIT OR Apache-2.0",
+      "version": "2.0.1"
+    },
+    {
+      "name": "ahash",
+      "repository": "https://github.com/tkaitchuck/ahash",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+          "path": "ahash-0.8.12\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "0444c6991eead6822f7b9102e654448d51624431119546492e8b231db42c48bb",
+          "path": "ahash-0.8.12\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "0.8.12"
+    },
+    {
+      "name": "aho-corasick",
+      "repository": "https://github.com/BurntSushi/aho-corasick",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "01c266bced4a434da0051174d6bee16a4c82cf634e2679b6155d40d75012390f",
+          "path": "aho-corasick-1.1.5\\COPYING"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "0f96a83840e146e43c0ec96a22ec1f392e0680e6c1226e6f3ba87e0740af850f",
+          "path": "aho-corasick-1.1.5\\LICENSE-MIT"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "7e12e5df4bae12cb21581ba157ced20e1986a0508dd10d0e8a4ab9a4cf94e85c",
+          "path": "aho-corasick-1.1.5\\UNLICENSE"
+        }
+      ],
+      "license": "Unlicense OR MIT",
+      "version": "1.1.5"
+    },
+    {
+      "name": "anyhow",
+      "repository": "https://github.com/dtolnay/anyhow",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+          "path": "anyhow-1.0.104\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+          "path": "anyhow-1.0.104\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "1.0.104"
+    },
+    {
+      "name": "arboard",
+      "repository": "https://github.com/1Password/arboard",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+          "path": "arboard-3.6.1\\LICENSE-APACHE.txt"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "f35468024534e0f4f16bb94cd0e88c87fbd1314f919c2645a07d350fb77b40c0",
+          "path": "arboard-3.6.1\\LICENSE-MIT.txt"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "3.6.1"
+    },
+    {
+      "name": "autocfg",
+      "repository": "https://github.com/cuviper/autocfg",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+          "path": "autocfg-1.5.1\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "27995d58ad5c1145c1a8cd86244ce844886958a35eb2b78c6b772748669999ac",
+          "path": "autocfg-1.5.1\\LICENSE-MIT"
+        }
+      ],
+      "license": "Apache-2.0 OR MIT",
+      "version": "1.5.1"
+    },
+    {
+      "name": "bitflags",
+      "repository": "https://github.com/bitflags/bitflags",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+          "path": "bitflags-2.13.2\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "6485b8ed310d3f0340bf1ad1f47645069ce4069dcc6bb46c7d5c6faf41de1fdb",
+          "path": "bitflags-2.13.2\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "2.13.2"
+    },
+    {
+      "name": "block-buffer",
+      "repository": "https://github.com/RustCrypto/utils",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "a9040321c3712d8fd0b09cf52b17445de04a23a10165049ae187cd39e5c86be5",
+          "path": "block-buffer-0.10.4\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "d5c22aa3118d240e877ad41c5d9fa232f9c77d757d4aac0c2f943afc0a95e0ef",
+          "path": "block-buffer-0.10.4\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "0.10.4"
+    },
+    {
+      "name": "bumpalo",
+      "repository": "https://github.com/fitzgen/bumpalo",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+          "path": "bumpalo-3.20.3\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "65f94e99ddaf4f5d1782a6dae23f35d4293a9a01444a13135a6887017d353cee",
+          "path": "bumpalo-3.20.3\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "3.20.3"
+    },
+    {
+      "name": "bytemuck",
+      "repository": "https://github.com/Lokathor/bytemuck",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "e3ba223bb1423f0aad8c3dfce0fe3148db48926d41e6fbc3afbbf5ff9e1c89cb",
+          "path": "bytemuck-1.25.2\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "9df9ba60a11af705f2e451b53762686e615d86f76b169cf075c3237730dbd7e2",
+          "path": "bytemuck-1.25.2\\LICENSE-MIT"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "84b34dd7608f7fb9b17bd588a6bf392bf7de504e2716f024a77d89f1b145a151",
+          "path": "bytemuck-1.25.2\\LICENSE-ZLIB"
+        }
+      ],
+      "license": "Zlib OR Apache-2.0 OR MIT",
+      "version": "1.25.2"
+    },
+    {
+      "name": "bytemuck_derive",
+      "repository": "https://github.com/Lokathor/bytemuck",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "e3ba223bb1423f0aad8c3dfce0fe3148db48926d41e6fbc3afbbf5ff9e1c89cb",
+          "path": "bytemuck_derive-1.12.1\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "9df9ba60a11af705f2e451b53762686e615d86f76b169cf075c3237730dbd7e2",
+          "path": "bytemuck_derive-1.12.1\\LICENSE-MIT"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "84b34dd7608f7fb9b17bd588a6bf392bf7de504e2716f024a77d89f1b145a151",
+          "path": "bytemuck_derive-1.12.1\\LICENSE-ZLIB"
+        }
+      ],
+      "license": "Zlib OR Apache-2.0 OR MIT",
+      "version": "1.12.1"
+    },
+    {
+      "name": "byteorder-lite",
+      "repository": "https://github.com/image-rs/byteorder-lite",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "0f96a83840e146e43c0ec96a22ec1f392e0680e6c1226e6f3ba87e0740af850f",
+          "path": "byteorder-lite-0.1.0\\LICENSE-MIT"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "7e12e5df4bae12cb21581ba157ced20e1986a0508dd10d0e8a4ab9a4cf94e85c",
+          "path": "byteorder-lite-0.1.0\\UNLICENSE"
+        }
+      ],
+      "license": "Unlicense OR MIT",
+      "version": "0.1.0"
+    },
+    {
+      "name": "cc",
+      "repository": "https://github.com/rust-lang/cc-rs",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+          "path": "cc-1.8.0\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "378f5840b258e2779c39418f3f2d7b2ba96f1c7917dd6be0713f88305dbda397",
+          "path": "cc-1.8.0\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "1.8.0"
+    },
+    {
+      "name": "cfg_aliases",
+      "repository": "https://github.com/katharostech/cfg_aliases",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "31b94860253d8ec7b4529f51901044d3b459d6292d996504a36b1bae3a36a812",
+          "path": "cfg_aliases-0.2.2\\LICENSE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "1e2b7ade3fb228130408b9990cae6a7618eb314c75aa0b164bfe485d9d9756ee",
+          "path": "cfg_aliases-0.2.2\\NOTICES.md"
+        }
+      ],
+      "license": "MIT",
+      "version": "0.2.2"
+    },
+    {
+      "name": "cfg-if",
+      "repository": "https://github.com/rust-lang/cfg-if",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+          "path": "cfg-if-1.0.5\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "378f5840b258e2779c39418f3f2d7b2ba96f1c7917dd6be0713f88305dbda397",
+          "path": "cfg-if-1.0.5\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "1.0.5"
+    },
+    {
+      "name": "chrono",
+      "repository": "https://github.com/chronotope/chrono",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "946c9835d8034d24404f8cfec5f4654cee5dad17e944afc3d06d742cf2882831",
+          "path": "chrono-0.4.45\\LICENSE.txt"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "0.4.45"
+    },
+    {
+      "name": "chrono-tz",
+      "repository": "https://github.com/chronotope/chrono-tz",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "6b7865fa851a101527956f17ad1256fbae502272016ff0733aa94964fdac5341",
+          "path": "chrono-tz-0.8.6\\LICENSE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "0613408568889f5739e5ae252b722a2659c02002839ad970a63dc5e9174b27cf",
+          "path": "chrono-tz-0.8.6\\tz__LICENSE"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "0.8.6"
+    },
+    {
+      "name": "chrono-tz-build",
+      "repository": null,
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "6b7865fa851a101527956f17ad1256fbae502272016ff0733aa94964fdac5341",
+          "path": "chrono-tz-build-0.2.1\\LICENSE"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "0.2.1"
+    },
+    {
+      "name": "clipboard-win",
+      "repository": "https://github.com/DoumanAsh/clipboard-win",
+      "files": [
+        {
+          "origin": "https://raw.githubusercontent.com/DoumanAsh/clipboard-win/3b27cf2bfd1adcfa6e0264eb51c1025ddaf0f342/LICENSE",
+          "sha256": "c9bff75738922193e67fa726fa225535870d2aa1059f91452c411736284ad566",
+          "path": "clipboard-win-5.4.1\\LICENSE"
+        }
+      ],
+      "license": "BSL-1.0",
+      "version": "5.4.1"
+    },
+    {
+      "name": "core_detect",
+      "repository": "https://github.com/thomcc/core_detect",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "769f80b5bcb42ed0af4e4d2fd74e1ac9bf843cb80c5a29219d1ef3544428a6bb",
+          "path": "core_detect-1.0.0\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "8569ebf6bf52937b961d9c9c934d8400a2bb6b09651a9afacbb3fc18fe5c09b1",
+          "path": "core_detect-1.0.0\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT/Apache-2.0",
+      "version": "1.0.0"
+    },
+    {
+      "name": "cpufeatures",
+      "repository": "https://github.com/RustCrypto/utils",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "a9040321c3712d8fd0b09cf52b17445de04a23a10165049ae187cd39e5c86be5",
+          "path": "cpufeatures-0.2.17\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "ae9baa7beea910273c2f384c2a6b721fb7bd02bda3436074a1072e4ee689f985",
+          "path": "cpufeatures-0.2.17\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "0.2.17"
+    },
+    {
+      "name": "crc32fast",
+      "repository": "https://github.com/srijs/rust-crc32fast",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "c6596eb7be8581c18be736c846fb9173b69eccf6ef94c5135893ec56bd92ba08",
+          "path": "crc32fast-1.5.2\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "61d383b05b87d78f94d2937e2580cce47226d17823c0430fbcad09596537efcf",
+          "path": "crc32fast-1.5.2\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "1.5.2"
+    },
+    {
+      "name": "crypto-common",
+      "repository": "https://github.com/RustCrypto/traits",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "a9040321c3712d8fd0b09cf52b17445de04a23a10165049ae187cd39e5c86be5",
+          "path": "crypto-common-0.1.7\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "3521672491a3479422d5fe1aca6645dd2984090f85da6e5205abfb18fb7a6897",
+          "path": "crypto-common-0.1.7\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "0.1.7"
+    },
+    {
+      "name": "cursor-icon",
+      "repository": "https://github.com/rust-windowing/cursor-icon",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "b59affd015e517ed998dd735757f9a3693643cd389609947ed54074234a10784",
+          "path": "cursor-icon-1.2.0\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "c138726a726ac37bae09d0f8a48e74e8e3aa8a8952fcd10fae0fb224cc1c05f1",
+          "path": "cursor-icon-1.2.0\\LICENSE-MIT"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "01e533bd94e8f1c32b2c2531e2c398de7d35d7804add3d574b4e1fe581d53537",
+          "path": "cursor-icon-1.2.0\\LICENSE-ZLIB"
+        }
+      ],
+      "license": "MIT OR Apache-2.0 OR Zlib",
+      "version": "1.2.0"
+    },
+    {
+      "name": "digest",
+      "repository": "https://github.com/RustCrypto/traits",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "a9040321c3712d8fd0b09cf52b17445de04a23a10165049ae187cd39e5c86be5",
+          "path": "digest-0.10.7\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "9e0dfd2dd4173a530e238cb6adb37aa78c34c6bc7444e0e10c1ab5d8881f63ba",
+          "path": "digest-0.10.7\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "0.10.7"
+    },
+    {
+      "name": "displaydoc",
+      "repository": "https://github.com/yaahc/displaydoc",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+          "path": "displaydoc-0.2.7\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+          "path": "displaydoc-0.2.7\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "0.2.7"
+    },
+    {
+      "name": "document-features",
+      "repository": "https://github.com/slint-ui/document-features",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "074e6e32c86a4c0ef8b3ed25b721ca23aca83df277cd88106ef7177c354615ff",
+          "path": "document-features-0.2.12\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "aa893340d14b9844625be6a50ac644169a01b52f0211cbf81b09e1874c8cd81d",
+          "path": "document-features-0.2.12\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "0.2.12"
+    },
+    {
+      "name": "dpi",
+      "repository": "https://github.com/rust-windowing/winit",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "6dc0e068dcf3a5bc8e054205b85b7720e1d49265bbc64bf515d2cf79197df69a",
+          "path": "dpi-0.1.2\\LICENSE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "9eff396a99bafd208e7126602420d6864f6066c08b84485a5b032320a9c01997",
+          "path": "dpi-0.1.2\\LICENSE-LIBM-MIT"
+        }
+      ],
+      "license": "Apache-2.0 AND MIT",
+      "version": "0.1.2"
+    },
+    {
+      "name": "ecolor",
+      "repository": "https://github.com/emilk/egui",
+      "files": [
+        {
+          "origin": "https://raw.githubusercontent.com/emilk/egui/af96e0373c18477b77236e2bfc89735af007b1c2/LICENSE-APACHE",
+          "sha256": "8173d5c29b4f956d532781d2b86e4e30f83e6b7878dce18c919451d6ba707c90",
+          "path": "ecolor-0.32.3\\LICENSE-APACHE"
+        },
+        {
+          "origin": "https://raw.githubusercontent.com/emilk/egui/af96e0373c18477b77236e2bfc89735af007b1c2/LICENSE-MIT",
+          "sha256": "95ca92f5f8ea5231f1580b3a2a799e8260af3114b900e1def5355a7f44bcf60c",
+          "path": "ecolor-0.32.3\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "0.32.3"
+    },
+    {
+      "name": "eframe",
+      "repository": "https://github.com/emilk/egui/tree/main/crates/eframe",
+      "files": [
+        {
+          "origin": "https://raw.githubusercontent.com/emilk/egui/af96e0373c18477b77236e2bfc89735af007b1c2/LICENSE-APACHE",
+          "sha256": "8173d5c29b4f956d532781d2b86e4e30f83e6b7878dce18c919451d6ba707c90",
+          "path": "eframe-0.32.3\\LICENSE-APACHE"
+        },
+        {
+          "origin": "https://raw.githubusercontent.com/emilk/egui/af96e0373c18477b77236e2bfc89735af007b1c2/LICENSE-MIT",
+          "sha256": "95ca92f5f8ea5231f1580b3a2a799e8260af3114b900e1def5355a7f44bcf60c",
+          "path": "eframe-0.32.3\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "0.32.3"
+    },
+    {
+      "name": "egui",
+      "repository": "https://github.com/emilk/egui",
+      "files": [
+        {
+          "origin": "https://raw.githubusercontent.com/emilk/egui/af96e0373c18477b77236e2bfc89735af007b1c2/LICENSE-APACHE",
+          "sha256": "8173d5c29b4f956d532781d2b86e4e30f83e6b7878dce18c919451d6ba707c90",
+          "path": "egui-0.32.3\\LICENSE-APACHE"
+        },
+        {
+          "origin": "https://raw.githubusercontent.com/emilk/egui/af96e0373c18477b77236e2bfc89735af007b1c2/LICENSE-MIT",
+          "sha256": "95ca92f5f8ea5231f1580b3a2a799e8260af3114b900e1def5355a7f44bcf60c",
+          "path": "egui-0.32.3\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "0.32.3"
+    },
+    {
+      "name": "egui_glow",
+      "repository": "https://github.com/emilk/egui/tree/main/crates/egui_glow",
+      "files": [
+        {
+          "origin": "https://raw.githubusercontent.com/emilk/egui/af96e0373c18477b77236e2bfc89735af007b1c2/LICENSE-APACHE",
+          "sha256": "8173d5c29b4f956d532781d2b86e4e30f83e6b7878dce18c919451d6ba707c90",
+          "path": "egui_glow-0.32.3\\LICENSE-APACHE"
+        },
+        {
+          "origin": "https://raw.githubusercontent.com/emilk/egui/af96e0373c18477b77236e2bfc89735af007b1c2/LICENSE-MIT",
+          "sha256": "95ca92f5f8ea5231f1580b3a2a799e8260af3114b900e1def5355a7f44bcf60c",
+          "path": "egui_glow-0.32.3\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "0.32.3"
+    },
+    {
+      "name": "egui-winit",
+      "repository": "https://github.com/emilk/egui/tree/main/crates/egui-winit",
+      "files": [
+        {
+          "origin": "https://raw.githubusercontent.com/emilk/egui/af96e0373c18477b77236e2bfc89735af007b1c2/LICENSE-APACHE",
+          "sha256": "8173d5c29b4f956d532781d2b86e4e30f83e6b7878dce18c919451d6ba707c90",
+          "path": "egui-winit-0.32.3\\LICENSE-APACHE"
+        },
+        {
+          "origin": "https://raw.githubusercontent.com/emilk/egui/af96e0373c18477b77236e2bfc89735af007b1c2/LICENSE-MIT",
+          "sha256": "95ca92f5f8ea5231f1580b3a2a799e8260af3114b900e1def5355a7f44bcf60c",
+          "path": "egui-winit-0.32.3\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "0.32.3"
+    },
+    {
+      "name": "emath",
+      "repository": "https://github.com/emilk/egui/tree/main/crates/emath",
+      "files": [
+        {
+          "origin": "https://raw.githubusercontent.com/emilk/egui/af96e0373c18477b77236e2bfc89735af007b1c2/LICENSE-APACHE",
+          "sha256": "8173d5c29b4f956d532781d2b86e4e30f83e6b7878dce18c919451d6ba707c90",
+          "path": "emath-0.32.3\\LICENSE-APACHE"
+        },
+        {
+          "origin": "https://raw.githubusercontent.com/emilk/egui/af96e0373c18477b77236e2bfc89735af007b1c2/LICENSE-MIT",
+          "sha256": "95ca92f5f8ea5231f1580b3a2a799e8260af3114b900e1def5355a7f44bcf60c",
+          "path": "emath-0.32.3\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "0.32.3"
+    },
+    {
+      "name": "encoding_rs",
+      "repository": "https://github.com/hsivonen/encoding_rs",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "11789f45bb180841cd362a5eee6789c68ddb573a11105e30768c308a6add0190",
+          "path": "encoding_rs-0.8.42\\COPYRIGHT"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+          "path": "encoding_rs-0.8.42\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "3fa4ca83dcc9237839b1bdeb2e6d16bdfb5ec0c5ce42b24694d8bbf0dcbef72c",
+          "path": "encoding_rs-0.8.42\\LICENSE-MIT"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "838118388fe5c2e7f1dbbaeed13e1c7f3ebf88be91319c7c1d77c18e987d1a50",
+          "path": "encoding_rs-0.8.42\\LICENSE-WHATWG"
+        }
+      ],
+      "license": "(Apache-2.0 OR MIT) AND BSD-3-Clause",
+      "version": "0.8.42"
+    },
+    {
+      "name": "epaint",
+      "repository": "https://github.com/emilk/egui/tree/main/crates/epaint",
+      "files": [
+        {
+          "origin": "https://raw.githubusercontent.com/emilk/egui/af96e0373c18477b77236e2bfc89735af007b1c2/LICENSE-APACHE",
+          "sha256": "8173d5c29b4f956d532781d2b86e4e30f83e6b7878dce18c919451d6ba707c90",
+          "path": "epaint-0.32.3\\LICENSE-APACHE"
+        },
+        {
+          "origin": "https://raw.githubusercontent.com/emilk/egui/af96e0373c18477b77236e2bfc89735af007b1c2/LICENSE-MIT",
+          "sha256": "95ca92f5f8ea5231f1580b3a2a799e8260af3114b900e1def5355a7f44bcf60c",
+          "path": "epaint-0.32.3\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "0.32.3"
+    },
+    {
+      "name": "equivalent",
+      "repository": "https://github.com/indexmap-rs/equivalent",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+          "path": "equivalent-1.0.3\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "7365cc8878a1d7ce155a58c4ca09c3d7a6be413efa5334a80ea842912b669349",
+          "path": "equivalent-1.0.3\\LICENSE-MIT"
+        }
+      ],
+      "license": "Apache-2.0 OR MIT",
+      "version": "1.0.3"
+    },
+    {
+      "name": "error-code",
+      "repository": "https://github.com/DoumanAsh/error-code",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "c9bff75738922193e67fa726fa225535870d2aa1059f91452c411736284ad566",
+          "path": "error-code-3.4.0\\LICENSE"
+        }
+      ],
+      "license": "BSL-1.0",
+      "version": "3.4.0"
+    },
+    {
+      "name": "fallible-iterator",
+      "repository": "https://github.com/sfackler/rust-fallible-iterator",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "c6596eb7be8581c18be736c846fb9173b69eccf6ef94c5135893ec56bd92ba08",
+          "path": "fallible-iterator-0.3.0\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "0816e154b159ba255c563f7c8c7df5bbb8cc5fc96f5ab8cf9f4743b4f41fe7eb",
+          "path": "fallible-iterator-0.3.0\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT/Apache-2.0",
+      "version": "0.3.0"
+    },
+    {
+      "name": "fallible-streaming-iterator",
+      "repository": "https://github.com/sfackler/fallible-streaming-iterator",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "c6596eb7be8581c18be736c846fb9173b69eccf6ef94c5135893ec56bd92ba08",
+          "path": "fallible-streaming-iterator-0.1.9\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "8dcec5569a9be5b0e086c80faed6f1aefa670af0ec29cecc2f714303096887e0",
+          "path": "fallible-streaming-iterator-0.1.9\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT/Apache-2.0",
+      "version": "0.1.9"
+    },
+    {
+      "name": "fastrand",
+      "repository": "https://github.com/smol-rs/fastrand",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+          "path": "fastrand-2.5.0\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+          "path": "fastrand-2.5.0\\LICENSE-MIT"
+        }
+      ],
+      "license": "Apache-2.0 OR MIT",
+      "version": "2.5.0"
+    },
+    {
+      "name": "fax",
+      "repository": "https://github.com/pdf-rs/fax",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "7101390b4c8edd752f4c0de47f35d61b44d9cf0ee8dd032115e25644e277cfff",
+          "path": "fax-0.2.7\\LICENSE"
+        }
+      ],
+      "license": "MIT",
+      "version": "0.2.7"
+    },
+    {
+      "name": "fdeflate",
+      "repository": "https://github.com/image-rs/fdeflate",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+          "path": "fdeflate-0.3.7\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "c77a4cf9da729987d0fe7ccd811e3bd27393914ddf3d23467c18cc22954513b3",
+          "path": "fdeflate-0.3.7\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "0.3.7"
+    },
+    {
+      "name": "find-msvc-tools",
+      "repository": "https://github.com/rust-lang/cc-rs",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+          "path": "find-msvc-tools-0.1.14\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "378f5840b258e2779c39418f3f2d7b2ba96f1c7917dd6be0713f88305dbda397",
+          "path": "find-msvc-tools-0.1.14\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "0.1.14"
+    },
+    {
+      "name": "flate2",
+      "repository": "https://github.com/rust-lang/flate2-rs",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+          "path": "flate2-1.1.10\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "025436edff4cfcdde17a5811fdea78892d8482efd1abdec5a17872d07a4f2112",
+          "path": "flate2-1.1.10\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "1.1.10"
+    },
+    {
+      "name": "foldhash",
+      "repository": "https://github.com/orlp/foldhash",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "b1181a40b2a7b25cf66fd01481713bc1005df082c53ef73e851e55071b102744",
+          "path": "foldhash-0.1.5\\LICENSE"
+        }
+      ],
+      "license": "Zlib",
+      "version": "0.1.5"
+    },
+    {
+      "name": "form_urlencoded",
+      "repository": "https://github.com/servo/rust-url",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+          "path": "form_urlencoded-1.2.2\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "20c7855c364d57ea4c97889a5e8d98470a9952dade37bd9248b9a54431670e5e",
+          "path": "form_urlencoded-1.2.2\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "1.2.2"
+    },
+    {
+      "name": "fs2",
+      "repository": "https://github.com/danburkert/fs2-rs",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+          "path": "fs2-0.4.3\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "7b63ecd5f1902af1b63729947373683c32745c16a10e8e6292e2e2dcd7e90ae0",
+          "path": "fs2-0.4.3\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT/Apache-2.0",
+      "version": "0.4.3"
+    },
+    {
+      "name": "generic-array",
+      "repository": "https://github.com/fizyk20/generic-array.git",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "c09aae9d3c77b531f56351a9947bc7446511d6b025b3255312d3e3442a9a7583",
+          "path": "generic-array-0.14.7\\LICENSE"
+        }
+      ],
+      "license": "MIT",
+      "version": "0.14.7"
+    },
+    {
+      "name": "getrandom",
+      "repository": "https://github.com/rust-random/getrandom",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "aaff376532ea30a0cd5330b9502ad4a4c8bf769c539c87ffe78819d188a18ebf",
+          "path": "getrandom-0.3.4\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "29e9fe5074bd27e0e5d5d110394fbbcd841baee2651a3c4b4560a632702cede4",
+          "path": "getrandom-0.3.4\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "0.3.4"
+    },
+    {
+      "name": "getrandom",
+      "repository": "https://github.com/rust-random/getrandom",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "aaff376532ea30a0cd5330b9502ad4a4c8bf769c539c87ffe78819d188a18ebf",
+          "path": "getrandom-0.4.3\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "523a42c25d245dde9c015f882cec7f4555aad883382a6cf19b4b7d9b2cd5419b",
+          "path": "getrandom-0.4.3\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "0.4.3"
+    },
+    {
+      "name": "gl_generator",
+      "repository": "https://github.com/brendanzab/gl-rs/",
+      "files": [
+        {
+          "origin": "https://raw.githubusercontent.com/rust-windowing/gl-rs/ea503e8d5fb6d73c6030e6191ce738cd3bf3433e/LICENSE",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+          "path": "gl_generator-0.14.0\\LICENSE"
+        }
+      ],
+      "license": "Apache-2.0",
+      "version": "0.14.0"
+    },
+    {
+      "name": "glow",
+      "repository": "https://github.com/grovesNL/glow",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "b8601fc79bdf8d8088f0938bea861ffc63ed0eebbedf25f44ab2cf2e85bd7edc",
+          "path": "glow-0.16.0\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "cdbd06e25b8c9c5d6019949d2de8123f56d29cee4166396423d2ba8c81700845",
+          "path": "glow-0.16.0\\LICENSE-MIT"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "636f644f1e149eb62961657c0e34953681eff64435653912e7bd19992666faa5",
+          "path": "glow-0.16.0\\LICENSE-ZLIB"
+        }
+      ],
+      "license": "MIT OR Apache-2.0 OR Zlib",
+      "version": "0.16.0"
+    },
+    {
+      "name": "glutin",
+      "repository": "https://github.com/rust-windowing/glutin",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "a4445427440043e8ce6fadf7a43fb906cb0d7f6c573a560a9f142cf9f9bf8ff4",
+          "path": "glutin-0.32.3\\LICENSE"
+        }
+      ],
+      "license": "Apache-2.0",
+      "version": "0.32.3"
+    },
+    {
+      "name": "glutin_egl_sys",
+      "repository": "https://github.com/rust-windowing/glutin",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "a4445427440043e8ce6fadf7a43fb906cb0d7f6c573a560a9f142cf9f9bf8ff4",
+          "path": "glutin_egl_sys-0.7.1\\LICENSE"
+        }
+      ],
+      "license": "Apache-2.0",
+      "version": "0.7.1"
+    },
+    {
+      "name": "glutin_wgl_sys",
+      "repository": "https://github.com/rust-windowing/glutin",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "a4445427440043e8ce6fadf7a43fb906cb0d7f6c573a560a9f142cf9f9bf8ff4",
+          "path": "glutin_wgl_sys-0.6.1\\LICENSE"
+        }
+      ],
+      "license": "Apache-2.0",
+      "version": "0.6.1"
+    },
+    {
+      "name": "glutin-winit",
+      "repository": "https://github.com/rust-windowing/glutin",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "d35629aec828ca86834f76e4c813bd6a6f0dda9005da898b0f49021f8042c5bd",
+          "path": "glutin-winit-0.5.0\\LICENSE"
+        }
+      ],
+      "license": "MIT",
+      "version": "0.5.0"
+    },
+    {
+      "name": "half",
+      "repository": "https://github.com/VoidStarKat/half-rs",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "a6cba85bc92e0cff7a450b1d873c0eaa2e9fc96bf472df0247a26bec77bf3ff9",
+          "path": "half-2.7.1\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "508a77d2e7b51d98adeed32648ad124b7b30241a8e70b2e72c99f92d8e5874d1",
+          "path": "half-2.7.1\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "2.7.1"
+    },
+    {
+      "name": "hashbrown",
+      "repository": "https://github.com/rust-lang/hashbrown",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+          "path": "hashbrown-0.15.5\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "ff8f68cb076caf8cefe7a6430d4ac086ce6af2ca8ce2c4e5a2004d4552ef52a2",
+          "path": "hashbrown-0.15.5\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "0.15.5"
+    },
+    {
+      "name": "hashbrown",
+      "repository": "https://github.com/rust-lang/hashbrown",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+          "path": "hashbrown-0.17.1\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "ff8f68cb076caf8cefe7a6430d4ac086ce6af2ca8ce2c4e5a2004d4552ef52a2",
+          "path": "hashbrown-0.17.1\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "0.17.1"
+    },
+    {
+      "name": "hashlink",
+      "repository": "https://github.com/kyren/hashlink",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "c144680885b29e4719e2a51f0aab5439a1e02d980692b5aaf086cae12727f28b",
+          "path": "hashlink-0.10.0\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "e915669a595b11a200873df8286561881b0e04932f6412a585db6297ba0bc97c",
+          "path": "hashlink-0.10.0\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "0.10.0"
+    },
+    {
+      "name": "icu_collections",
+      "repository": "https://github.com/unicode-org/icu4x",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "f367c1b8e1aa262435251e442901da4607b4650e0e63a026f5044473ecfb90f2",
+          "path": "icu_collections-2.3.0\\LICENSE"
+        }
+      ],
+      "license": "Unicode-3.0",
+      "version": "2.3.0"
+    },
+    {
+      "name": "icu_locale_core",
+      "repository": "https://github.com/unicode-org/icu4x",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "f367c1b8e1aa262435251e442901da4607b4650e0e63a026f5044473ecfb90f2",
+          "path": "icu_locale_core-2.3.0\\LICENSE"
+        }
+      ],
+      "license": "Unicode-3.0",
+      "version": "2.3.0"
+    },
+    {
+      "name": "icu_normalizer",
+      "repository": "https://github.com/unicode-org/icu4x",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "f367c1b8e1aa262435251e442901da4607b4650e0e63a026f5044473ecfb90f2",
+          "path": "icu_normalizer-2.3.0\\LICENSE"
+        }
+      ],
+      "license": "Unicode-3.0",
+      "version": "2.3.0"
+    },
+    {
+      "name": "icu_normalizer_data",
+      "repository": "https://github.com/unicode-org/icu4x",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "f367c1b8e1aa262435251e442901da4607b4650e0e63a026f5044473ecfb90f2",
+          "path": "icu_normalizer_data-2.3.0\\LICENSE"
+        }
+      ],
+      "license": "Unicode-3.0",
+      "version": "2.3.0"
+    },
+    {
+      "name": "icu_properties",
+      "repository": "https://github.com/unicode-org/icu4x",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "f367c1b8e1aa262435251e442901da4607b4650e0e63a026f5044473ecfb90f2",
+          "path": "icu_properties-2.3.0\\LICENSE"
+        }
+      ],
+      "license": "Unicode-3.0",
+      "version": "2.3.0"
+    },
+    {
+      "name": "icu_properties_data",
+      "repository": "https://github.com/unicode-org/icu4x",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "f367c1b8e1aa262435251e442901da4607b4650e0e63a026f5044473ecfb90f2",
+          "path": "icu_properties_data-2.3.0\\LICENSE"
+        }
+      ],
+      "license": "Unicode-3.0",
+      "version": "2.3.0"
+    },
+    {
+      "name": "icu_provider",
+      "repository": "https://github.com/unicode-org/icu4x",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "f367c1b8e1aa262435251e442901da4607b4650e0e63a026f5044473ecfb90f2",
+          "path": "icu_provider-2.3.1\\LICENSE"
+        }
+      ],
+      "license": "Unicode-3.0",
+      "version": "2.3.1"
+    },
+    {
+      "name": "idna",
+      "repository": "https://github.com/servo/rust-url/",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+          "path": "idna-1.1.0\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "b38f11f6096706e6de553dabe2a7ed142d59b6fa8c97e290c67496154745cdd5",
+          "path": "idna-1.1.0\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "1.1.0"
+    },
+    {
+      "name": "idna_adapter",
+      "repository": "https://github.com/hsivonen/idna_adapter",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+          "path": "idna_adapter-1.2.2\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "8b43ce8accd61e9d370b5ca9e9c4f953279b5c239926c62315b40e24df51b726",
+          "path": "idna_adapter-1.2.2\\LICENSE-MIT"
+        }
+      ],
+      "license": "Apache-2.0 OR MIT",
+      "version": "1.2.2"
+    },
+    {
+      "name": "image",
+      "repository": "https://github.com/image-rs/image",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+          "path": "image-0.25.10\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "c77a4cf9da729987d0fe7ccd811e3bd27393914ddf3d23467c18cc22954513b3",
+          "path": "image-0.25.10\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "0.25.10"
+    },
+    {
+      "name": "indexmap",
+      "repository": "https://github.com/indexmap-rs/indexmap",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+          "path": "indexmap-2.14.2\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "ecc269ef87fd38a1d98e30bfac9ba964a9dbd9315c3770fed98d4d7cb5882055",
+          "path": "indexmap-2.14.2\\LICENSE-MIT"
+        }
+      ],
+      "license": "Apache-2.0 OR MIT",
+      "version": "2.14.2"
+    },
+    {
+      "name": "itoa",
+      "repository": "https://github.com/dtolnay/itoa",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+          "path": "itoa-1.0.18\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+          "path": "itoa-1.0.18\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "1.0.18"
+    },
+    {
+      "name": "jobserver",
+      "repository": "https://github.com/rust-lang/jobserver-rs",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+          "path": "jobserver-0.1.35\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "378f5840b258e2779c39418f3f2d7b2ba96f1c7917dd6be0713f88305dbda397",
+          "path": "jobserver-0.1.35\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "0.1.35"
+    },
+    {
+      "name": "khronos_api",
+      "repository": "https://github.com/brendanzab/gl-rs/",
+      "files": [
+        {
+          "origin": "https://raw.githubusercontent.com/rust-windowing/gl-rs/f150967b1c44ae888e6676f93f639ebc82771bdc/LICENSE",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+          "path": "khronos_api-3.1.0\\LICENSE"
+        }
+      ],
+      "license": "Apache-2.0",
+      "version": "3.1.0"
+    },
+    {
+      "name": "libloading",
+      "repository": "https://github.com/nagisa/rust_libloading/",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "b29f8b01452350c20dd1af16ef83b598fea3053578ccc1c7a0ef40e57be2620f",
+          "path": "libloading-0.8.9\\LICENSE"
+        }
+      ],
+      "license": "ISC",
+      "version": "0.8.9"
+    },
+    {
+      "name": "libsqlite3-sys",
+      "repository": "https://github.com/rusqlite/rusqlite",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "c10c1f27337546471e5f7e4e97fdd398b35b9d4e126115dcd22de8d8e65abf6f",
+          "path": "libsqlite3-sys-0.35.0\\LICENSE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "ea4fcb309f14a22065e1ea45362d494d320012249ed865fe9c7c0946db754131",
+          "path": "libsqlite3-sys-0.35.0\\sqlcipher__LICENSE"
+        }
+      ],
+      "license": "MIT",
+      "version": "0.35.0"
+    },
+    {
+      "name": "litemap",
+      "repository": "https://github.com/unicode-org/icu4x",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "f367c1b8e1aa262435251e442901da4607b4650e0e63a026f5044473ecfb90f2",
+          "path": "litemap-0.8.3\\LICENSE"
+        }
+      ],
+      "license": "Unicode-3.0",
+      "version": "0.8.3"
+    },
+    {
+      "name": "litrs",
+      "repository": "https://github.com/LukasKalbertodt/litrs",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+          "path": "litrs-1.0.1\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "7dc1552e88f49132cb358b1b962fc5e79fa42d70bcbb88c526d33e45b8e98036",
+          "path": "litrs-1.0.1\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "1.0.1"
+    },
+    {
+      "name": "lock_api",
+      "repository": "https://github.com/Amanieu/parking_lot",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+          "path": "lock_api-0.4.14\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "c9a75f18b9ab2927829a208fc6aa2cf4e63b8420887ba29cdb265d6619ae82d5",
+          "path": "lock_api-0.4.14\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "0.4.14"
+    },
+    {
+      "name": "log",
+      "repository": "https://github.com/rust-lang/log",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+          "path": "log-0.4.34\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "6485b8ed310d3f0340bf1ad1f47645069ce4069dcc6bb46c7d5c6faf41de1fdb",
+          "path": "log-0.4.34\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "0.4.34"
+    },
+    {
+      "name": "lunar_rust",
+      "repository": "https://github.com/flameoftheforest/lunar_rust",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "da379517d9a4af5d7d6e95c9ca1ab8af3ecef9a1b7eea4d60794dc484e73f75c",
+          "path": "lunar_rust-1.0.1\\LICENSE"
+        }
+      ],
+      "license": "MIT",
+      "version": "1.0.1"
+    },
+    {
+      "name": "memchr",
+      "repository": "https://github.com/BurntSushi/memchr",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "01c266bced4a434da0051174d6bee16a4c82cf634e2679b6155d40d75012390f",
+          "path": "memchr-2.8.3\\COPYING"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "0f96a83840e146e43c0ec96a22ec1f392e0680e6c1226e6f3ba87e0740af850f",
+          "path": "memchr-2.8.3\\LICENSE-MIT"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "7e12e5df4bae12cb21581ba157ced20e1986a0508dd10d0e8a4ab9a4cf94e85c",
+          "path": "memchr-2.8.3\\UNLICENSE"
+        }
+      ],
+      "license": "Unlicense OR MIT",
+      "version": "2.8.3"
+    },
+    {
+      "name": "memoffset",
+      "repository": "https://github.com/Gilnaa/memoffset",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "3234ac55816264ee7b6c7ee27efd61cf0a1fe775806870e3d9b4c41ea73c5cb1",
+          "path": "memoffset-0.9.1\\LICENSE"
+        }
+      ],
+      "license": "MIT",
+      "version": "0.9.1"
+    },
+    {
+      "name": "miniz_oxide",
+      "repository": "https://github.com/Frommi/miniz_oxide/tree/master/miniz_oxide",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "4108245a1f2df9d4e94df8abed5b4ba0759bb2f9b40a6b939f1be141077ae50b",
+          "path": "miniz_oxide-0.8.9\\LICENSE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+          "path": "miniz_oxide-0.8.9\\LICENSE-APACHE.md"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "799e9ca9d179295ef372f25d3769cdda7d25bb2668add6a6a1e22d1e4c678b8d",
+          "path": "miniz_oxide-0.8.9\\LICENSE-MIT.md"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "0a54e647fe54104658b5e563c04c6f9edf251710e47bce692e0bd990a4ddaa39",
+          "path": "miniz_oxide-0.8.9\\LICENSE-ZLIB.md"
+        }
+      ],
+      "license": "MIT OR Zlib OR Apache-2.0",
+      "version": "0.8.9"
+    },
+    {
+      "name": "miniz_oxide",
+      "repository": "https://github.com/Frommi/miniz_oxide/tree/master/miniz_oxide",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "4108245a1f2df9d4e94df8abed5b4ba0759bb2f9b40a6b939f1be141077ae50b",
+          "path": "miniz_oxide-0.9.1\\LICENSE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+          "path": "miniz_oxide-0.9.1\\LICENSE-APACHE.md"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "799e9ca9d179295ef372f25d3769cdda7d25bb2668add6a6a1e22d1e4c678b8d",
+          "path": "miniz_oxide-0.9.1\\LICENSE-MIT.md"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "0a54e647fe54104658b5e563c04c6f9edf251710e47bce692e0bd990a4ddaa39",
+          "path": "miniz_oxide-0.9.1\\LICENSE-ZLIB.md"
+        }
+      ],
+      "license": "MIT OR Zlib OR Apache-2.0",
+      "version": "0.9.1"
+    },
+    {
+      "name": "moxcms",
+      "repository": "https://github.com/awxkee/moxcms.git",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "90bf2d659c43045111b65c733ab2a6d4cbcb422a098368c8c58a9ba3db4ed0c5",
+          "path": "moxcms-0.8.1\\LICENSE-APACHE.md"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "2aa92cada6431e75615e3fe6cb1a9082c98f777d48ae1c087c0da0e37f7b8bff",
+          "path": "moxcms-0.8.1\\LICENSE.md"
+        }
+      ],
+      "license": "BSD-3-Clause OR Apache-2.0",
+      "version": "0.8.1"
+    },
+    {
+      "name": "multiversion_no_op",
+      "repository": "https://github.com/hsivonen/multiversion_no_op",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "d2a809eafabba137f508bea16a1b93d8ff24df7da6f38129d830db9bc118bdfe",
+          "path": "multiversion_no_op-1.0.0\\COPYRIGHT"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+          "path": "multiversion_no_op-1.0.0\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "3fa4ca83dcc9237839b1bdeb2e6d16bdfb5ec0c5ce42b24694d8bbf0dcbef72c",
+          "path": "multiversion_no_op-1.0.0\\LICENSE-MIT"
+        }
+      ],
+      "license": "Apache-2.0 OR MIT",
+      "version": "1.0.0"
+    },
+    {
+      "name": "nohash-hasher",
+      "repository": "https://github.com/paritytech/nohash-hasher",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+          "path": "nohash-hasher-0.2.0\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "ec353d4fecf7963b4c054384557e5dbc3c7a717997eb4a3815b315721a6aa75a",
+          "path": "nohash-hasher-0.2.0\\LICENSE-MIT"
+        }
+      ],
+      "license": "Apache-2.0 OR MIT",
+      "version": "0.2.0"
+    },
+    {
+      "name": "num-traits",
+      "repository": "https://github.com/rust-num/num-traits",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+          "path": "num-traits-0.2.19\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "6485b8ed310d3f0340bf1ad1f47645069ce4069dcc6bb46c7d5c6faf41de1fdb",
+          "path": "num-traits-0.2.19\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "0.2.19"
+    },
+    {
+      "name": "once_cell",
+      "repository": "https://github.com/matklad/once_cell",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+          "path": "once_cell-1.21.4\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+          "path": "once_cell-1.21.4\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "1.21.4"
+    },
+    {
+      "name": "owned_ttf_parser",
+      "repository": "https://github.com/alexheretic/owned-ttf-parser",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "a6cba85bc92e0cff7a450b1d873c0eaa2e9fc96bf472df0247a26bec77bf3ff9",
+          "path": "owned_ttf_parser-0.25.1\\LICENSE"
+        }
+      ],
+      "license": "Apache-2.0",
+      "version": "0.25.1"
+    },
+    {
+      "name": "parking_lot",
+      "repository": "https://github.com/Amanieu/parking_lot",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+          "path": "parking_lot-0.12.5\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "c9a75f18b9ab2927829a208fc6aa2cf4e63b8420887ba29cdb265d6619ae82d5",
+          "path": "parking_lot-0.12.5\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "0.12.5"
+    },
+    {
+      "name": "parking_lot_core",
+      "repository": "https://github.com/Amanieu/parking_lot",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+          "path": "parking_lot_core-0.9.12\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "c9a75f18b9ab2927829a208fc6aa2cf4e63b8420887ba29cdb265d6619ae82d5",
+          "path": "parking_lot_core-0.9.12\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "0.9.12"
+    },
+    {
+      "name": "parse-zoneinfo",
+      "repository": "https://github.com/chronotope/chrono-tz",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "4789210f4df8abc03fce1cddd9c2ba517f184840687f2815d741de282c1aa93a",
+          "path": "parse-zoneinfo-0.3.1\\LICENSE"
+        }
+      ],
+      "license": "MIT",
+      "version": "0.3.1"
+    },
+    {
+      "name": "percent-encoding",
+      "repository": "https://github.com/servo/rust-url/",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+          "path": "percent-encoding-2.3.2\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "b38f11f6096706e6de553dabe2a7ed142d59b6fa8c97e290c67496154745cdd5",
+          "path": "percent-encoding-2.3.2\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "2.3.2"
+    },
+    {
+      "name": "phf",
+      "repository": "https://github.com/rust-phf/rust-phf",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "0ab4d106b6faac07fb6a051815fd1b4d862d730895e2d7d7358c2f13565e7a38",
+          "path": "phf-0.11.3\\LICENSE"
+        }
+      ],
+      "license": "MIT",
+      "version": "0.11.3"
+    },
+    {
+      "name": "phf_codegen",
+      "repository": "https://github.com/rust-phf/rust-phf",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "0ab4d106b6faac07fb6a051815fd1b4d862d730895e2d7d7358c2f13565e7a38",
+          "path": "phf_codegen-0.11.3\\LICENSE"
+        }
+      ],
+      "license": "MIT",
+      "version": "0.11.3"
+    },
+    {
+      "name": "phf_generator",
+      "repository": "https://github.com/rust-phf/rust-phf",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "0ab4d106b6faac07fb6a051815fd1b4d862d730895e2d7d7358c2f13565e7a38",
+          "path": "phf_generator-0.11.3\\LICENSE"
+        }
+      ],
+      "license": "MIT",
+      "version": "0.11.3"
+    },
+    {
+      "name": "phf_shared",
+      "repository": "https://github.com/rust-phf/rust-phf",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "0ab4d106b6faac07fb6a051815fd1b4d862d730895e2d7d7358c2f13565e7a38",
+          "path": "phf_shared-0.11.3\\LICENSE"
+        }
+      ],
+      "license": "MIT",
+      "version": "0.11.3"
+    },
+    {
+      "name": "pin-project-lite",
+      "repository": "https://github.com/taiki-e/pin-project-lite",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+          "path": "pin-project-lite-0.2.17\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+          "path": "pin-project-lite-0.2.17\\LICENSE-MIT"
+        }
+      ],
+      "license": "Apache-2.0 OR MIT",
+      "version": "0.2.17"
+    },
+    {
+      "name": "pkg-config",
+      "repository": "https://github.com/rust-lang/pkg-config-rs",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+          "path": "pkg-config-0.3.34\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "378f5840b258e2779c39418f3f2d7b2ba96f1c7917dd6be0713f88305dbda397",
+          "path": "pkg-config-0.3.34\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "0.3.34"
+    },
+    {
+      "name": "png",
+      "repository": "https://github.com/image-rs/image-png",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+          "path": "png-0.18.1\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "eaf40297c75da471f7cda1f3458e8d91b4b2ec866e609527a13acfa93b638652",
+          "path": "png-0.18.1\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "0.18.1"
+    },
+    {
+      "name": "potential_utf",
+      "repository": "https://github.com/unicode-org/icu4x",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "f367c1b8e1aa262435251e442901da4607b4650e0e63a026f5044473ecfb90f2",
+          "path": "potential_utf-0.1.6\\LICENSE"
+        }
+      ],
+      "license": "Unicode-3.0",
+      "version": "0.1.6"
+    },
+    {
+      "name": "proc-macro2",
+      "repository": "https://github.com/dtolnay/proc-macro2",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+          "path": "proc-macro2-1.0.107\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+          "path": "proc-macro2-1.0.107\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "1.0.107"
+    },
+    {
+      "name": "profiling",
+      "repository": "https://github.com/aclysma/profiling",
+      "files": [
+        {
+          "origin": "https://raw.githubusercontent.com/aclysma/profiling/8271551172eb6fa4cba47369aedd93790c623df9/LICENSE-APACHE",
+          "sha256": "10d30a673cd5e9349bdc02aeb48f14b3386d27d0da32df8f0a555d4aa16aa551",
+          "path": "profiling-1.0.18\\LICENSE-APACHE"
+        },
+        {
+          "origin": "https://raw.githubusercontent.com/aclysma/profiling/8271551172eb6fa4cba47369aedd93790c623df9/LICENSE-MIT",
+          "sha256": "c8167fdeeed46d3f244d3f85c5bf998ce889343691c32be2c61a8bc4b5c08333",
+          "path": "profiling-1.0.18\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "1.0.18"
+    },
+    {
+      "name": "pxfm",
+      "repository": "https://github.com/awxkee/pxfm",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "90bf2d659c43045111b65c733ab2a6d4cbcb422a098368c8c58a9ba3db4ed0c5",
+          "path": "pxfm-0.1.30\\LICENSE-APACHE.md"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "2aa92cada6431e75615e3fe6cb1a9082c98f777d48ae1c087c0da0e37f7b8bff",
+          "path": "pxfm-0.1.30\\LICENSE.md"
+        }
+      ],
+      "license": "BSD-3-Clause OR Apache-2.0",
+      "version": "0.1.30"
+    },
+    {
+      "name": "quick-error",
+      "repository": "http://github.com/tailhook/quick-error",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "c6596eb7be8581c18be736c846fb9173b69eccf6ef94c5135893ec56bd92ba08",
+          "path": "quick-error-2.0.1\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "058f01fe181608d027fcde7e528fc03ea3cf90f30903c407644b0a9bbc54f500",
+          "path": "quick-error-2.0.1\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT/Apache-2.0",
+      "version": "2.0.1"
+    },
+    {
+      "name": "quote",
+      "repository": "https://github.com/dtolnay/quote",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+          "path": "quote-1.0.47\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+          "path": "quote-1.0.47\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "1.0.47"
+    },
+    {
+      "name": "rand",
+      "repository": "https://github.com/rust-random/rand",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "90eb64f0279b0d9432accfa6023ff803bc4965212383697eee27a0f426d5f8d5",
+          "path": "rand-0.8.8\\COPYRIGHT"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "35242e7a83f69875e6edeff02291e688c97caafe2f8902e4e19b49d3e78b4cab",
+          "path": "rand-0.8.8\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "209fbbe0ad52d9235e37badf9cadfe4dbdc87203179c0899e738b39ade42177b",
+          "path": "rand-0.8.8\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "0.8.8"
+    },
+    {
+      "name": "rand_core",
+      "repository": "https://github.com/rust-random/rand",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "90eb64f0279b0d9432accfa6023ff803bc4965212383697eee27a0f426d5f8d5",
+          "path": "rand_core-0.6.4\\COPYRIGHT"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "6df43f6f4b5d4587f3d8d71e45532c688fd168afa5fe89d571cb32fa09c4ef51",
+          "path": "rand_core-0.6.4\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "209fbbe0ad52d9235e37badf9cadfe4dbdc87203179c0899e738b39ade42177b",
+          "path": "rand_core-0.6.4\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "0.6.4"
+    },
+    {
+      "name": "raw-window-handle",
+      "repository": "https://github.com/rust-windowing/raw-window-handle",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+          "path": "raw-window-handle-0.6.2\\LICENSE-APACHE.md"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "9c5a80639a57c1c945570e7ebbca0706305849ce3c098021325cca9db2f7acc4",
+          "path": "raw-window-handle-0.6.2\\LICENSE-MIT.md"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "ae895c8576e682f310fb70d93d9f99b1dd82872094c54a8f6cdfe2ca5c2d6ecb",
+          "path": "raw-window-handle-0.6.2\\LICENSE-ZLIB.md"
+        }
+      ],
+      "license": "MIT OR Apache-2.0 OR Zlib",
+      "version": "0.6.2"
+    },
+    {
+      "name": "regex",
+      "repository": "https://github.com/rust-lang/regex",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+          "path": "regex-1.13.1\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "6485b8ed310d3f0340bf1ad1f47645069ce4069dcc6bb46c7d5c6faf41de1fdb",
+          "path": "regex-1.13.1\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "1.13.1"
+    },
+    {
+      "name": "regex-automata",
+      "repository": "https://github.com/rust-lang/regex",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+          "path": "regex-automata-0.4.18\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "6485b8ed310d3f0340bf1ad1f47645069ce4069dcc6bb46c7d5c6faf41de1fdb",
+          "path": "regex-automata-0.4.18\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "0.4.18"
+    },
+    {
+      "name": "regex-syntax",
+      "repository": "https://github.com/rust-lang/regex",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+          "path": "regex-syntax-0.8.11\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "6485b8ed310d3f0340bf1ad1f47645069ce4069dcc6bb46c7d5c6faf41de1fdb",
+          "path": "regex-syntax-0.8.11\\LICENSE-MIT"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "74db5baf44a41b1000312c673544b3374e4198af5605c7f9080a402cec42cfa3",
+          "path": "regex-syntax-0.8.11\\src__unicode_tables__LICENSE-UNICODE"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "0.8.11"
+    },
+    {
+      "name": "rfd",
+      "repository": "https://github.com/PolyMeilex/rfd",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "65fc947f4bac882a2cd104ef73c246b1b037059df9f2b3a58b7f77f0b9e56071",
+          "path": "rfd-0.15.4\\LICENSE"
+        }
+      ],
+      "license": "MIT",
+      "version": "0.15.4"
+    },
+    {
+      "name": "rusqlite",
+      "repository": "https://github.com/rusqlite/rusqlite",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "c10c1f27337546471e5f7e4e97fdd398b35b9d4e126115dcd22de8d8e65abf6f",
+          "path": "rusqlite-0.37.0\\LICENSE"
+        }
+      ],
+      "license": "MIT",
+      "version": "0.37.0"
+    },
+    {
+      "name": "rust_xlsxwriter",
+      "repository": "https://github.com/jmcnamara/rust_xlsxwriter",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "200b4fe394f84ca7bde802512ff5fc840921c74b1d792744b5e39f5db9a7ef7f",
+          "path": "rust_xlsxwriter-0.90.2\\LICENSE_Apache2.0"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "e19e2105cdb5b04addd25c7d8d458c1db9b43eb4a608f193756cafbdd33b630d",
+          "path": "rust_xlsxwriter-0.90.2\\LICENSE_MIT"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "0.90.2"
+    },
+    {
+      "name": "rustversion",
+      "repository": "https://github.com/dtolnay/rustversion",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+          "path": "rustversion-1.0.23\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+          "path": "rustversion-1.0.23\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "1.0.23"
+    },
+    {
+      "name": "scopeguard",
+      "repository": "https://github.com/bluss/scopeguard",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+          "path": "scopeguard-1.2.0\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "fb77f0a9c53e473abe5103c8632ef9f0f2874d4fb3f17cb2d8c661aab9cee9d7",
+          "path": "scopeguard-1.2.0\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "1.2.0"
+    },
+    {
+      "name": "serde",
+      "repository": "https://github.com/serde-rs/serde",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+          "path": "serde-1.0.229\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+          "path": "serde-1.0.229\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "1.0.229"
+    },
+    {
+      "name": "serde_core",
+      "repository": "https://github.com/serde-rs/serde",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+          "path": "serde_core-1.0.229\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+          "path": "serde_core-1.0.229\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "1.0.229"
+    },
+    {
+      "name": "serde_derive",
+      "repository": "https://github.com/serde-rs/serde",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+          "path": "serde_derive-1.0.229\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+          "path": "serde_derive-1.0.229\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "1.0.229"
+    },
+    {
+      "name": "serde_json",
+      "repository": "https://github.com/serde-rs/json",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+          "path": "serde_json-1.0.154\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+          "path": "serde_json-1.0.154\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "1.0.154"
+    },
+    {
+      "name": "sha2",
+      "repository": "https://github.com/RustCrypto/hashes",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "a9040321c3712d8fd0b09cf52b17445de04a23a10165049ae187cd39e5c86be5",
+          "path": "sha2-0.10.9\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "b4eb00df6e2a4d22518fcaa6a2b4646f249b3a3c9814509b22bd2091f1392ff1",
+          "path": "sha2-0.10.9\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "0.10.9"
+    },
+    {
+      "name": "shlex",
+      "repository": "https://github.com/comex/rust-shlex",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "553fffcd9b1cb158bc3e9edc35da85ca5c3b3d7d2e61c883ebcfa8a65814b583",
+          "path": "shlex-2.0.1\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "4455bf75a91154108304cb283e0fea9948c14f13e20d60887cf2552449dea3b1",
+          "path": "shlex-2.0.1\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "2.0.1"
+    },
+    {
+      "name": "simd-adler32",
+      "repository": "https://github.com/mcountryman/simd-adler32",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "42a35170233e83e18856792e748de4c1ce4a63b2afce9a370c89ef3fe23f9f2d",
+          "path": "simd-adler32-0.3.10\\LICENSE.md"
+        }
+      ],
+      "license": "MIT",
+      "version": "0.3.10"
+    },
+    {
+      "name": "simdutf8",
+      "repository": "https://github.com/rusticstuff/simdutf8",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "0cec06e0e55fbc3dc5cee4fca9b607f66cb8f4e4dbcf3b3c013594dd156732e9",
+          "path": "simdutf8-0.1.5\\LICENSE-Apache"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "1847e0e0698142ed4347c1441a9fa81c8fbddd44b1d8bbcd5e3647f991759d7f",
+          "path": "simdutf8-0.1.5\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "0.1.5"
+    },
+    {
+      "name": "siphasher",
+      "repository": "https://github.com/jedisct1/rust-siphash",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "c962ee4d1d05ddc138b202b2540219ebc57893fcf97b364852094a9a94ce1365",
+          "path": "siphasher-1.0.4\\COPYING"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+          "path": "siphasher-1.0.4\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "f9c4c77baa3828004ee54b8a4f2db2e88ed44a6237a493965bf551fac0fcb62d",
+          "path": "siphasher-1.0.4\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "1.0.4"
+    },
+    {
+      "name": "smallvec",
+      "repository": "https://github.com/servo/rust-smallvec",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+          "path": "smallvec-1.16.3\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "0b28172679e0009b655da42797c03fd163a3379d5cfa67ba1f1655e974a2a1a9",
+          "path": "smallvec-1.16.3\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "1.16.3"
+    },
+    {
+      "name": "smol_str",
+      "repository": "https://github.com/rust-analyzer/smol_str",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+          "path": "smol_str-0.2.2\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+          "path": "smol_str-0.2.2\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "0.2.2"
+    },
+    {
+      "name": "stable_deref_trait",
+      "repository": "https://github.com/storyyeller/stable_deref_trait",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+          "path": "stable_deref_trait-1.2.1\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "5e05b024f653a5ce199e77cbbbd42fb5553562ec714b819421ed0c3e552a75d7",
+          "path": "stable_deref_trait-1.2.1\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "1.2.1"
+    },
+    {
+      "name": "static_assertions",
+      "repository": "https://github.com/nvzqz/static-assertions-rs",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+          "path": "static_assertions-1.1.0\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "ea084a2373ebc1f0902c09266e7bf25a05ab3814c1805bb017ffa7308f90c061",
+          "path": "static_assertions-1.1.0\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "1.1.0"
+    },
+    {
+      "name": "syn",
+      "repository": "https://github.com/dtolnay/syn",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+          "path": "syn-2.0.119\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+          "path": "syn-2.0.119\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "2.0.119"
+    },
+    {
+      "name": "syn",
+      "repository": "https://github.com/dtolnay/syn",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+          "path": "syn-3.0.9\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+          "path": "syn-3.0.9\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "3.0.9"
+    },
+    {
+      "name": "synstructure",
+      "repository": "https://github.com/mystor/synstructure",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "219920e865eee70b7dcfc948a86b099e7f4fe2de01bcca2ca9a20c0a033f2b59",
+          "path": "synstructure-0.14.0\\LICENSE"
+        }
+      ],
+      "license": "MIT",
+      "version": "0.14.0"
+    },
+    {
+      "name": "tempfile",
+      "repository": "https://github.com/Stebalien/tempfile",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+          "path": "tempfile-3.27.0\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "8b427f5bc501764575e52ba4f9d95673cf8f6d80a86d0d06599852e1a9a20a36",
+          "path": "tempfile-3.27.0\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "3.27.0"
+    },
+    {
+      "name": "thiserror",
+      "repository": "https://github.com/dtolnay/thiserror",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+          "path": "thiserror-2.0.21\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+          "path": "thiserror-2.0.21\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "2.0.21"
+    },
+    {
+      "name": "thiserror-impl",
+      "repository": "https://github.com/dtolnay/thiserror",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+          "path": "thiserror-impl-2.0.21\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+          "path": "thiserror-impl-2.0.21\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "2.0.21"
+    },
+    {
+      "name": "tiff",
+      "repository": "https://github.com/image-rs/image-tiff",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "20c097d0de27e2adc179140a3d542091951a030699c7e1c78655f2a2d08d4e3e",
+          "path": "tiff-0.11.3\\LICENSE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "c6d1d56bb6e2fe4f0aed4aa8553261dd65247db6db50c87c9e9f3fbe095e2202",
+          "path": "tiff-0.11.3\\tests__COPYRIGHT"
+        }
+      ],
+      "license": "MIT",
+      "version": "0.11.3"
+    },
+    {
+      "name": "tinystr",
+      "repository": "https://github.com/unicode-org/icu4x",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "f367c1b8e1aa262435251e442901da4607b4650e0e63a026f5044473ecfb90f2",
+          "path": "tinystr-0.8.4\\LICENSE"
+        }
+      ],
+      "license": "Unicode-3.0",
+      "version": "0.8.4"
+    },
+    {
+      "name": "tracing",
+      "repository": "https://github.com/tokio-rs/tracing",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "898b1ae9821e98daf8964c8d6c7f61641f5f5aa78ad500020771c0939ee0dea1",
+          "path": "tracing-0.1.44\\LICENSE"
+        }
+      ],
+      "license": "MIT",
+      "version": "0.1.44"
+    },
+    {
+      "name": "tracing-attributes",
+      "repository": "https://github.com/tokio-rs/tracing",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "898b1ae9821e98daf8964c8d6c7f61641f5f5aa78ad500020771c0939ee0dea1",
+          "path": "tracing-attributes-0.1.31\\LICENSE"
+        }
+      ],
+      "license": "MIT",
+      "version": "0.1.31"
+    },
+    {
+      "name": "tracing-core",
+      "repository": "https://github.com/tokio-rs/tracing",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "898b1ae9821e98daf8964c8d6c7f61641f5f5aa78ad500020771c0939ee0dea1",
+          "path": "tracing-core-0.1.36\\LICENSE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "58545fed1565e42d687aecec6897d35c6d37ccb71479a137c0deb2203e125c79",
+          "path": "tracing-core-0.1.36\\src__spin__LICENSE"
+        }
+      ],
+      "license": "MIT",
+      "version": "0.1.36"
+    },
+    {
+      "name": "ttf-parser",
+      "repository": "https://github.com/harfbuzz/ttf-parser",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+          "path": "ttf-parser-0.25.1\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "f3c9fe731c701ed77fd5fbaac573872af04dc5869385eb9bd5e3c73c42713814",
+          "path": "ttf-parser-0.25.1\\LICENSE-MIT"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd",
+          "path": "ttf-parser-0.25.1\\tests__fonts__colr_1_LICENSE"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "0.25.1"
+    },
+    {
+      "name": "typenum",
+      "repository": "https://github.com/paholg/typenum",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "db11fec9946737df39ca3898d9cd8c10ec6f6c3a884a6802b0ad0b81b4e8f23a",
+          "path": "typenum-1.20.1\\LICENSE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "516b24e051bf5630880ebbd55c40a25ce9552ebaf8970a53e8976eb70e522406",
+          "path": "typenum-1.20.1\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "a825bd853ab71619a4923d7b4311221427848070ff44d990da39b0b274c1683f",
+          "path": "typenum-1.20.1\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "1.20.1"
+    },
+    {
+      "name": "unicode-ident",
+      "repository": "https://github.com/dtolnay/unicode-ident",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+          "path": "unicode-ident-1.0.27\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+          "path": "unicode-ident-1.0.27\\LICENSE-MIT"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "f7db81051789b729fea528a63ec4c938fdcb93d9d61d97dc8cc2e9df6d47f2a1",
+          "path": "unicode-ident-1.0.27\\LICENSE-UNICODE"
+        }
+      ],
+      "license": "(MIT OR Apache-2.0) AND Unicode-3.0",
+      "version": "1.0.27"
+    },
+    {
+      "name": "unicode-segmentation",
+      "repository": "https://github.com/unicode-rs/unicode-segmentation",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "23860c2a7b5d96b21569afedf033469bab9fe14a1b24a35068b8641c578ce24d",
+          "path": "unicode-segmentation-1.13.3\\COPYRIGHT"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+          "path": "unicode-segmentation-1.13.3\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "7b63ecd5f1902af1b63729947373683c32745c16a10e8e6292e2e2dcd7e90ae0",
+          "path": "unicode-segmentation-1.13.3\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "1.13.3"
+    },
+    {
+      "name": "url",
+      "repository": "https://github.com/servo/rust-url",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+          "path": "url-2.5.8\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "b38f11f6096706e6de553dabe2a7ed142d59b6fa8c97e290c67496154745cdd5",
+          "path": "url-2.5.8\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "2.5.8"
+    },
+    {
+      "name": "utf8_iter",
+      "repository": "https://github.com/hsivonen/utf8_iter",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "c30152c94a6d75e021adbc52b3a52470366a46edb917e17deae3259251af244c",
+          "path": "utf8_iter-1.0.4\\COPYRIGHT"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+          "path": "utf8_iter-1.0.4\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "3fa4ca83dcc9237839b1bdeb2e6d16bdfb5ec0c5ce42b24694d8bbf0dcbef72c",
+          "path": "utf8_iter-1.0.4\\LICENSE-MIT"
+        }
+      ],
+      "license": "Apache-2.0 OR MIT",
+      "version": "1.0.4"
+    },
+    {
+      "name": "vcpkg",
+      "repository": "https://github.com/mcgoo/vcpkg-rs",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "60c93a31f490375aadf64098b75f10715010379541021e00261045d7800611d3",
+          "path": "vcpkg-0.2.15\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "016d20f335060a70e79d9fcf8dfaa6201114d65d592211f4bdfb8ae9ca2bc1dc",
+          "path": "vcpkg-0.2.15\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT/Apache-2.0",
+      "version": "0.2.15"
+    },
+    {
+      "name": "version_check",
+      "repository": "https://github.com/SergioBenitez/version_check",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+          "path": "version_check-0.9.5\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "b7e650f3fce5c53249d1cdc608b54df156a97edd636cf9d23498d0cfe7aec63e",
+          "path": "version_check-0.9.5\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT/Apache-2.0",
+      "version": "0.9.5"
+    },
+    {
+      "name": "web-time",
+      "repository": "https://github.com/daxpedda/web-time",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "54a744942eb3fa63a74d8d359989ed6962c04f3f10ff20cfa08ff8aa7efbe4e6",
+          "path": "web-time-1.1.0\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "f428305bbf2e70fbd807af0f3c7ac1b7acfb95311640f451e9d2e48db6d7e96b",
+          "path": "web-time-1.1.0\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "1.1.0"
+    },
+    {
+      "name": "webbrowser",
+      "repository": "https://github.com/amodm/webbrowser-rs",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "b0f7d40eaa9577d99132579866bf1eaf448577dc737582b8a34f1b3e7fab8994",
+          "path": "webbrowser-1.2.4\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "7f0f4f8802c102d35110806d1755b7681127575b644f64750810cc47fa78df5b",
+          "path": "webbrowser-1.2.4\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "1.2.4"
+    },
+    {
+      "name": "weezl",
+      "repository": "https://github.com/image-rs/weezl",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "769f80b5bcb42ed0af4e4d2fd74e1ac9bf843cb80c5a29219d1ef3544428a6bb",
+          "path": "weezl-0.1.12\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "573f5227db835cd30bbdd3aed3f82615f80119a4d5c82b4daf642dbfe2b6afde",
+          "path": "weezl-0.1.12\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "0.1.12"
+    },
+    {
+      "name": "winapi",
+      "repository": "https://github.com/retep998/winapi-rs",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1",
+          "path": "winapi-0.3.9\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "ce7bc3499fee93d5022ef430d5e4201e79a6d9154f3974e42f41349f0569e09b",
+          "path": "winapi-0.3.9\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT/Apache-2.0",
+      "version": "0.3.9"
+    },
+    {
+      "name": "windows",
+      "repository": "https://github.com/microsoft/windows-rs",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "c16f8dcf1a368b83be78d826ea23de4079fe1b4469a0ab9ee20563f37ff3d44b",
+          "path": "windows-0.61.3\\license-apache-2.0"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383",
+          "path": "windows-0.61.3\\license-mit"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "0.61.3"
+    },
+    {
+      "name": "windows_x86_64_msvc",
+      "repository": "https://github.com/microsoft/windows-rs",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "c16f8dcf1a368b83be78d826ea23de4079fe1b4469a0ab9ee20563f37ff3d44b",
+          "path": "windows_x86_64_msvc-0.52.6\\license-apache-2.0"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383",
+          "path": "windows_x86_64_msvc-0.52.6\\license-mit"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "0.52.6"
+    },
+    {
+      "name": "windows_x86_64_msvc",
+      "repository": "https://github.com/microsoft/windows-rs",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "c16f8dcf1a368b83be78d826ea23de4079fe1b4469a0ab9ee20563f37ff3d44b",
+          "path": "windows_x86_64_msvc-0.53.1\\license-apache-2.0"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383",
+          "path": "windows_x86_64_msvc-0.53.1\\license-mit"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "0.53.1"
+    },
+    {
+      "name": "windows-collections",
+      "repository": "https://github.com/microsoft/windows-rs",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "c16f8dcf1a368b83be78d826ea23de4079fe1b4469a0ab9ee20563f37ff3d44b",
+          "path": "windows-collections-0.2.0\\license-apache-2.0"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383",
+          "path": "windows-collections-0.2.0\\license-mit"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "0.2.0"
+    },
+    {
+      "name": "windows-core",
+      "repository": "https://github.com/microsoft/windows-rs",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "c16f8dcf1a368b83be78d826ea23de4079fe1b4469a0ab9ee20563f37ff3d44b",
+          "path": "windows-core-0.61.2\\license-apache-2.0"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383",
+          "path": "windows-core-0.61.2\\license-mit"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "0.61.2"
+    },
+    {
+      "name": "windows-future",
+      "repository": "https://github.com/microsoft/windows-rs",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "c16f8dcf1a368b83be78d826ea23de4079fe1b4469a0ab9ee20563f37ff3d44b",
+          "path": "windows-future-0.2.1\\license-apache-2.0"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383",
+          "path": "windows-future-0.2.1\\license-mit"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "0.2.1"
+    },
+    {
+      "name": "windows-implement",
+      "repository": "https://github.com/microsoft/windows-rs",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "c16f8dcf1a368b83be78d826ea23de4079fe1b4469a0ab9ee20563f37ff3d44b",
+          "path": "windows-implement-0.60.2\\license-apache-2.0"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383",
+          "path": "windows-implement-0.60.2\\license-mit"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "0.60.2"
+    },
+    {
+      "name": "windows-interface",
+      "repository": "https://github.com/microsoft/windows-rs",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "c16f8dcf1a368b83be78d826ea23de4079fe1b4469a0ab9ee20563f37ff3d44b",
+          "path": "windows-interface-0.59.3\\license-apache-2.0"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383",
+          "path": "windows-interface-0.59.3\\license-mit"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "0.59.3"
+    },
+    {
+      "name": "windows-link",
+      "repository": "https://github.com/microsoft/windows-rs",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "c16f8dcf1a368b83be78d826ea23de4079fe1b4469a0ab9ee20563f37ff3d44b",
+          "path": "windows-link-0.1.3\\license-apache-2.0"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383",
+          "path": "windows-link-0.1.3\\license-mit"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "0.1.3"
+    },
+    {
+      "name": "windows-link",
+      "repository": "https://github.com/microsoft/windows-rs",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "c16f8dcf1a368b83be78d826ea23de4079fe1b4469a0ab9ee20563f37ff3d44b",
+          "path": "windows-link-0.2.1\\license-apache-2.0"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383",
+          "path": "windows-link-0.2.1\\license-mit"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "0.2.1"
+    },
+    {
+      "name": "windows-numerics",
+      "repository": "https://github.com/microsoft/windows-rs",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "c16f8dcf1a368b83be78d826ea23de4079fe1b4469a0ab9ee20563f37ff3d44b",
+          "path": "windows-numerics-0.2.0\\license-apache-2.0"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383",
+          "path": "windows-numerics-0.2.0\\license-mit"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "0.2.0"
+    },
+    {
+      "name": "windows-result",
+      "repository": "https://github.com/microsoft/windows-rs",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "c16f8dcf1a368b83be78d826ea23de4079fe1b4469a0ab9ee20563f37ff3d44b",
+          "path": "windows-result-0.3.4\\license-apache-2.0"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383",
+          "path": "windows-result-0.3.4\\license-mit"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "0.3.4"
+    },
+    {
+      "name": "windows-strings",
+      "repository": "https://github.com/microsoft/windows-rs",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "c16f8dcf1a368b83be78d826ea23de4079fe1b4469a0ab9ee20563f37ff3d44b",
+          "path": "windows-strings-0.4.2\\license-apache-2.0"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383",
+          "path": "windows-strings-0.4.2\\license-mit"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "0.4.2"
+    },
+    {
+      "name": "windows-sys",
+      "repository": "https://github.com/microsoft/windows-rs",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "c16f8dcf1a368b83be78d826ea23de4079fe1b4469a0ab9ee20563f37ff3d44b",
+          "path": "windows-sys-0.52.0\\license-apache-2.0"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383",
+          "path": "windows-sys-0.52.0\\license-mit"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "0.52.0"
+    },
+    {
+      "name": "windows-sys",
+      "repository": "https://github.com/microsoft/windows-rs",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "c16f8dcf1a368b83be78d826ea23de4079fe1b4469a0ab9ee20563f37ff3d44b",
+          "path": "windows-sys-0.59.0\\license-apache-2.0"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383",
+          "path": "windows-sys-0.59.0\\license-mit"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "0.59.0"
+    },
+    {
+      "name": "windows-sys",
+      "repository": "https://github.com/microsoft/windows-rs",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "c16f8dcf1a368b83be78d826ea23de4079fe1b4469a0ab9ee20563f37ff3d44b",
+          "path": "windows-sys-0.60.2\\license-apache-2.0"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383",
+          "path": "windows-sys-0.60.2\\license-mit"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "0.60.2"
+    },
+    {
+      "name": "windows-sys",
+      "repository": "https://github.com/microsoft/windows-rs",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "c16f8dcf1a368b83be78d826ea23de4079fe1b4469a0ab9ee20563f37ff3d44b",
+          "path": "windows-sys-0.61.2\\license-apache-2.0"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383",
+          "path": "windows-sys-0.61.2\\license-mit"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "0.61.2"
+    },
+    {
+      "name": "windows-targets",
+      "repository": "https://github.com/microsoft/windows-rs",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "c16f8dcf1a368b83be78d826ea23de4079fe1b4469a0ab9ee20563f37ff3d44b",
+          "path": "windows-targets-0.52.6\\license-apache-2.0"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383",
+          "path": "windows-targets-0.52.6\\license-mit"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "0.52.6"
+    },
+    {
+      "name": "windows-targets",
+      "repository": "https://github.com/microsoft/windows-rs",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "c16f8dcf1a368b83be78d826ea23de4079fe1b4469a0ab9ee20563f37ff3d44b",
+          "path": "windows-targets-0.53.5\\license-apache-2.0"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383",
+          "path": "windows-targets-0.53.5\\license-mit"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "0.53.5"
+    },
+    {
+      "name": "windows-threading",
+      "repository": "https://github.com/microsoft/windows-rs",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "c16f8dcf1a368b83be78d826ea23de4079fe1b4469a0ab9ee20563f37ff3d44b",
+          "path": "windows-threading-0.1.0\\license-apache-2.0"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383",
+          "path": "windows-threading-0.1.0\\license-mit"
+        }
+      ],
+      "license": "MIT OR Apache-2.0",
+      "version": "0.1.0"
+    },
+    {
+      "name": "winit",
+      "repository": "https://github.com/rust-windowing/winit",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "6dc0e068dcf3a5bc8e054205b85b7720e1d49265bbc64bf515d2cf79197df69a",
+          "path": "winit-0.30.13\\LICENSE"
+        }
+      ],
+      "license": "Apache-2.0",
+      "version": "0.30.13"
+    },
+    {
+      "name": "writeable",
+      "repository": "https://github.com/unicode-org/icu4x",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "f367c1b8e1aa262435251e442901da4607b4650e0e63a026f5044473ecfb90f2",
+          "path": "writeable-0.6.4\\LICENSE"
+        }
+      ],
+      "license": "Unicode-3.0",
+      "version": "0.6.4"
+    },
+    {
+      "name": "xml-rs",
+      "repository": "https://github.com/kornelski/xml-rs",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "0dc18d924dc0a5f41172a393012843a5eaaef338e795b3645da9cc3b6068220b",
+          "path": "xml-rs-0.8.29\\LICENSE"
+        }
+      ],
+      "license": "MIT",
+      "version": "0.8.29"
+    },
+    {
+      "name": "yoke",
+      "repository": "https://github.com/unicode-org/icu4x",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "f367c1b8e1aa262435251e442901da4607b4650e0e63a026f5044473ecfb90f2",
+          "path": "yoke-0.8.3\\LICENSE"
+        }
+      ],
+      "license": "Unicode-3.0",
+      "version": "0.8.3"
+    },
+    {
+      "name": "yoke-derive",
+      "repository": "https://github.com/unicode-org/icu4x",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "f367c1b8e1aa262435251e442901da4607b4650e0e63a026f5044473ecfb90f2",
+          "path": "yoke-derive-0.8.4\\LICENSE"
+        }
+      ],
+      "license": "Unicode-3.0",
+      "version": "0.8.4"
+    },
+    {
+      "name": "zerocopy",
+      "repository": "https://github.com/google/zerocopy",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "9d185ac6703c4b0453974c0d85e9eee43e6941009296bb1f5eb0b54e2329e9f3",
+          "path": "zerocopy-0.8.63\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "83c1763356e822adde0a2cae748d938a73fdc263849ccff6b27776dff213bd32",
+          "path": "zerocopy-0.8.63\\LICENSE-BSD"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "1a2f5c12ddc934d58956aa5dbdd3255fe55fd957633ab7d0d39e4f0daa73f7df",
+          "path": "zerocopy-0.8.63\\LICENSE-MIT"
+        }
+      ],
+      "license": "BSD-2-Clause OR Apache-2.0 OR MIT",
+      "version": "0.8.63"
+    },
+    {
+      "name": "zerocopy-derive",
+      "repository": "https://github.com/google/zerocopy",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "9d185ac6703c4b0453974c0d85e9eee43e6941009296bb1f5eb0b54e2329e9f3",
+          "path": "zerocopy-derive-0.8.63\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "83c1763356e822adde0a2cae748d938a73fdc263849ccff6b27776dff213bd32",
+          "path": "zerocopy-derive-0.8.63\\LICENSE-BSD"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "1a2f5c12ddc934d58956aa5dbdd3255fe55fd957633ab7d0d39e4f0daa73f7df",
+          "path": "zerocopy-derive-0.8.63\\LICENSE-MIT"
+        }
+      ],
+      "license": "BSD-2-Clause OR Apache-2.0 OR MIT",
+      "version": "0.8.63"
+    },
+    {
+      "name": "zerofrom",
+      "repository": "https://github.com/unicode-org/icu4x",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "f367c1b8e1aa262435251e442901da4607b4650e0e63a026f5044473ecfb90f2",
+          "path": "zerofrom-0.1.8\\LICENSE"
+        }
+      ],
+      "license": "Unicode-3.0",
+      "version": "0.1.8"
+    },
+    {
+      "name": "zerofrom-derive",
+      "repository": "https://github.com/unicode-org/icu4x",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "f367c1b8e1aa262435251e442901da4607b4650e0e63a026f5044473ecfb90f2",
+          "path": "zerofrom-derive-0.1.8\\LICENSE"
+        }
+      ],
+      "license": "Unicode-3.0",
+      "version": "0.1.8"
+    },
+    {
+      "name": "zerotrie",
+      "repository": "https://github.com/unicode-org/icu4x",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "f367c1b8e1aa262435251e442901da4607b4650e0e63a026f5044473ecfb90f2",
+          "path": "zerotrie-0.2.5\\LICENSE"
+        }
+      ],
+      "license": "Unicode-3.0",
+      "version": "0.2.5"
+    },
+    {
+      "name": "zerovec",
+      "repository": "https://github.com/unicode-org/icu4x",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "f367c1b8e1aa262435251e442901da4607b4650e0e63a026f5044473ecfb90f2",
+          "path": "zerovec-0.11.8\\LICENSE"
+        }
+      ],
+      "license": "Unicode-3.0",
+      "version": "0.11.8"
+    },
+    {
+      "name": "zerovec-derive",
+      "repository": "https://github.com/unicode-org/icu4x",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "f367c1b8e1aa262435251e442901da4607b4650e0e63a026f5044473ecfb90f2",
+          "path": "zerovec-derive-0.11.6\\LICENSE"
+        }
+      ],
+      "license": "Unicode-3.0",
+      "version": "0.11.6"
+    },
+    {
+      "name": "zip",
+      "repository": "https://github.com/zip-rs/zip2.git",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "04dc52136d82400b11df5f474949863a70a5d05d2278dec45b99c479494450a6",
+          "path": "zip-2.4.2\\LICENSE"
+        }
+      ],
+      "license": "MIT",
+      "version": "2.4.2"
+    },
+    {
+      "name": "zip",
+      "repository": "https://github.com/zip-rs/zip2.git",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "04dc52136d82400b11df5f474949863a70a5d05d2278dec45b99c479494450a6",
+          "path": "zip-4.6.1\\LICENSE"
+        }
+      ],
+      "license": "MIT",
+      "version": "4.6.1"
+    },
+    {
+      "name": "zlib-rs",
+      "repository": "https://github.com/trifectatechfoundation/zlib-rs",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "e72111c52b7d96ebe25348dee19f0744f444d3c95ae6b1ecb6ccaecc5bce05ba",
+          "path": "zlib-rs-0.6.8\\LICENSE"
+        }
+      ],
+      "license": "Zlib",
+      "version": "0.6.8"
+    },
+    {
+      "name": "zmij",
+      "repository": "https://github.com/dtolnay/zmij",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+          "path": "zmij-1.0.23\\LICENSE-MIT"
+        }
+      ],
+      "license": "MIT",
+      "version": "1.0.23"
+    },
+    {
+      "name": "zopfli",
+      "repository": "https://github.com/zopfli-rs/zopfli",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "018b1cb87efdf7a04c2fcc13d57ed63f62149113fb207b27ea13430d64f13513",
+          "path": "zopfli-0.8.4\\COPYING"
+        }
+      ],
+      "license": "Apache-2.0",
+      "version": "0.8.4"
+    },
+    {
+      "name": "zune-core",
+      "repository": "https://github.com/etemesi254/zune-image",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+          "path": "zune-core-0.5.3\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "d30047bca3b516639339a3c279bb84c3483124fb5a9dafe3c75056a85090e745",
+          "path": "zune-core-0.5.3\\LICENSE-MIT"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "d201d14804d3bcd3b944147173175e4abfbd838b7c8069b6bd3452496bf13e6c",
+          "path": "zune-core-0.5.3\\LICENSE-ZLIB"
+        }
+      ],
+      "license": "MIT OR Apache-2.0 OR Zlib",
+      "version": "0.5.3"
+    },
+    {
+      "name": "zune-jpeg",
+      "repository": "https://github.com/etemesi254/zune-image/tree/dev/crates/zune-jpeg",
+      "files": [
+        {
+          "origin": "locked crate",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+          "path": "zune-jpeg-0.5.15\\LICENSE-APACHE"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "d30047bca3b516639339a3c279bb84c3483124fb5a9dafe3c75056a85090e745",
+          "path": "zune-jpeg-0.5.15\\LICENSE-MIT"
+        },
+        {
+          "origin": "locked crate",
+          "sha256": "d201d14804d3bcd3b944147173175e4abfbd838b7c8069b6bd3452496bf13e6c",
+          "path": "zune-jpeg-0.5.15\\LICENSE-ZLIB"
+        }
+      ],
+      "license": "MIT OR Apache-2.0 OR Zlib",
+      "version": "0.5.15"
+    }
+  ]
+}

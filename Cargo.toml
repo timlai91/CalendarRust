@@ -1,0 +1,45 @@
+[package]
+name = "calendar-rust"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.88"
+description = "Offline Traditional Chinese Windows calendar"
+default-run = "CalendarRust"
+
+[[bin]]
+name = "CalendarRust"
+path = "src/main.rs"
+
+[[bin]]
+name = "build-data"
+path = "src/bin/build_data.rs"
+
+[[bin]]
+name = "verify-calendar"
+path = "src/bin/verify_calendar.rs"
+
+[dependencies]
+anyhow = "1.0"
+chrono = { version = "0.4.42", features = ["serde"] }
+eframe = { version = "=0.32.3", default-features = false, features = ["glow", "accesskit"] }
+encoding_rs = "0.8"
+flate2 = "1.1"
+fs2 = "0.4"
+image = { version = "0.25.8", default-features = false, features = ["png", "jpeg", "bmp", "ico"] }
+lunar_rust = "=1.0.1"
+rfd = "0.15.4"
+rusqlite = { version = "0.37", features = ["bundled", "backup"] }
+rust_xlsxwriter = "0.90"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+sha2 = "0.10"
+tempfile = "3.23"
+zip = { version = "2.4", default-features = false, features = ["deflate"] }
+
+[target.'cfg(windows)'.dependencies]
+windows-sys = { version = "0.59", features = ["Win32_Foundation", "Win32_Graphics_Gdi", "Win32_UI_WindowsAndMessaging", "Win32_System_Threading", "Win32_System_DataExchange", "Win32_UI_Shell"] }
+
+[profile.release]
+lto = "thin"
+codegen-units = 1
+strip = "debuginfo"
