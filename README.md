@@ -92,6 +92,8 @@ cargo build --release --locked --target x86_64-pc-windows-msvc --bin CalendarRus
 cargo run --locked --bin CalendarRust -- --resources . --data-dir '.\target\dev-user'
 ```
 
+執行時的視窗與工作列圖示使用 `assets\icons\512.png`，編譯時嵌入 EXE，不從外部路徑載入；農民曆子視窗沿用主視窗圖示。`build.rs` 也會以同一張 PNG 自動產生 16／24／32／48／64／128／256 px、32-bit RGBA 的 ICO，嵌入 `CalendarRust.exe` 的 Windows 資源，供檔案總管與捷徑顯示。替換圖片後需重新建置並重啟程式；Windows 若仍顯示舊圖示，請重新整理檔案總管或重建捷徑。建置需可用的 Windows SDK 資源編譯器，缺少時會明確失敗；不需手動轉檔或另外散布 ICO。
+
 完整封裝：
 
 ```powershell

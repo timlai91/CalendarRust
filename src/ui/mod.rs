@@ -21,6 +21,7 @@ pub(super) const SELECT: Color32 = Color32::from_rgb(0xE5, 0xED, 0xF1);
 pub(super) const RED: Color32 = Color32::from_rgb(0xB8, 0x33, 0x29);
 pub(super) const GREEN: Color32 = Color32::from_rgb(0x35, 0x78, 0x38);
 const LAYOUT_SIZE: egui::Vec2 = egui::vec2(840.0, 640.0);
+const APP_ICON_PNG: &[u8] = include_bytes!("..\\..\\assets\\icons\\512.png");
 
 pub(super) enum Action {
     Select(NaiveDate),
@@ -138,7 +139,9 @@ pub fn run() -> Result<()> {
     let grid = provider.month(session.selected.year(), session.selected.month())?;
     let selected_info = provider.info(session.selected);
     let today_info = provider.info(today);
+    let icon = eframe::icon_data::from_png_bytes(APP_ICON_PNG).context("無法載入程式圖示")?;
     let mut viewport = egui::ViewportBuilder::default()
+        .with_icon(icon)
         .with_inner_size(LAYOUT_SIZE)
         .with_min_inner_size([360.0, 280.0])
         .with_resizable(false)
@@ -626,5 +629,18 @@ impl Drop for CalendarApp {
                 platform::show_fatal("匯出工作異常終止；請確認目的檔");
             }
         }
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::APP_ICON_PNG;
+
+    #[test]
+    fn embedded_app_icon_is_valid_512px_rgba() {
+        let icon = eframe::icon_data::from_png_bytes(APP_ICON_PNG).unwrap();
+        assert_eq!((icon.width, icon.height), (512, 512));
+        assert_eq!(icon.rgba.len(), 512 * 512 * 4);
+        assert!(icon.rgba.chunks_exact(4).any(|pixel| pixel[3] != 0));
     }
 }

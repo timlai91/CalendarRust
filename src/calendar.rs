@@ -330,8 +330,7 @@ fn from_historical(day: crate::data::HistoricalDay) -> DateInfo {
         events: Vec::new(),
         event_error: None,
         almanac: AlmanacAvailability::OutOfRange,
-        source: "農曆：lunar_rust 1.0.1"
-            .into(),
+        source: "農曆：lunar_rust 1.0.1".into(),
     }
 }
 
