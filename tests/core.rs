@@ -1,8 +1,8 @@
 use calendar_rust::{
     app::{SaveState, Session},
     calendar::{self, CalendarProvider},
-    data::{LunarData, RawMonth},
-    events::EventKind,
+    data::{LunarData, RawMonth, SolarTerm},
+    events::{self, EventKind},
     storage::{MemoRepository, Store},
 };
 use chrono::{Datelike, Duration, NaiveDate};
@@ -68,6 +68,74 @@ fn october_grid_and_year_edges_match_contract() {
     assert!(calendar::navigate_month(calendar::MIN, -1).is_err());
     assert!(calendar::navigate_month(calendar::MAX, 1).is_err());
     assert_eq!(calendar::row_week(date("2021-01-01")), (2020, 53));
+}
+
+#[test]
+fn tooltip_joins_only_nonempty_lines() {
+    let term = SolarTerm {
+        name: "寒露".into(),
+        start_date: date("2026-10-08"),
+        end_date: date("2026-10-23"),
+        next_name: "霜降".into(),
+        next_date: date("2026-10-23"),
+        desc: String::new(),
+    };
+    for with_events in [false, true] {
+        for (event_error, expected_error) in [
+            (None, ""),
+            (Some(""), ""),
+            (Some(" \t\n"), ""),
+            (
+                Some("事件資料不可用\n\n \t\n請重試"),
+                "事件資料不可用\n請重試",
+            ),
+        ] {
+            for (solar_term, expected_term) in [
+                (Ok(None), ""),
+                (
+                    Ok(Some(term.clone())),
+                    "節氣期間：寒露（2026-10-08 ～ 2026-10-23 前）",
+                ),
+                (Err("資料損壞".into()), "節氣欄位不可用：資料損壞"),
+            ] {
+                let info = calendar::DateInfo {
+                    date: date("2026-10-15"),
+                    lunar: Ok(calendar::lunar_from_parts(2026, 9, 6, false).unwrap()),
+                    month_ganzhi: "戊戌".into(),
+                    day_ganzhi: "壬戌".into(),
+                    solar_term,
+                    events: if with_events {
+                        vec![
+                            events::event("first".into(), "事件一", EventKind::Memorial, "來源一"),
+                            events::event("second".into(), "事件二", EventKind::Memorial, "來源二"),
+                        ]
+                    } else {
+                        Vec::new()
+                    },
+                    event_error: event_error.map(str::to_owned),
+                    almanac: calendar::AlmanacAvailability::OutOfRange,
+                    source: String::new(),
+                };
+                let mut expected = concat!(
+                    "2026-10-15 星期四（民國 115 年）\n",
+                    "農曆 2026年 九月初六 · 丙午年／馬\n",
+                    "月干支 戊戌 · 日干支 壬戌\n",
+                    "列週數：2026年第42週",
+                )
+                .to_owned();
+                if with_events {
+                    expected.push_str("\n事件一〔來源一〕\n事件二〔來源二〕");
+                }
+                for extra in [expected_error, expected_term] {
+                    if !extra.is_empty() {
+                        expected.push('\n');
+                        expected.push_str(extra);
+                    }
+                }
+                assert_eq!(info.tooltip(), expected);
+            }
+        }
+    }
 }
 
 #[test]

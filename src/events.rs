@@ -2,8 +2,8 @@ use crate::calendar::LunarDate;
 use chrono::{Datelike, NaiveDate, Weekday};
 use serde::{Deserialize, Serialize};
 
-pub const WARNING: &str = "節日／紀念日不等於現行法定休假";
-pub const SOURCE: &str = "CalendarRust 獨立整理 v1；非原版資料表／政府辦公日表";
+pub const WARNING: &str = ""; //"節日／紀念日不等於現行法定休假";
+pub const SOURCE: &str = ""; //"CalendarRust 獨立整理 v1；非原版資料表／政府辦公日表";
 
 #[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
 pub enum EventKind {

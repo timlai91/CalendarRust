@@ -108,21 +108,25 @@ impl DateInfo {
             Ok(None) => String::new(),
             Err(e) => format!("節氣欄位不可用：{e}"),
         };
-        format!(
-            "{} {}（民國 {} 年）\n{}\n月干支 {} · 日干支 {}\n列週數：{}年第{}週（列星期四 ISO 週）\n{}\n{}\n來源：{}\n{}",
-            self.date,
-            WEEKDAYS[self.date.weekday().num_days_from_sunday() as usize],
-            self.date.year() - 1911,
+        [
+            format!(
+                "{} {}（民國 {} 年）",
+                self.date,
+                WEEKDAYS[self.date.weekday().num_days_from_sunday() as usize],
+                self.date.year() - 1911,
+            ),
             lunar,
-            self.month_ganzhi,
-            self.day_ganzhi,
-            year,
-            week,
-            format_args!("{events}\n{}", self.event_error.as_deref().unwrap_or("")),
+            format!("月干支 {} · 日干支 {}", self.month_ganzhi, self.day_ganzhi),
+            format!("列週數：{year}年第{week}週"),
+            events,
+            self.event_error.clone().unwrap_or_default(),
             term,
-            self.source,
-            events::WARNING
-        )
+        ]
+        .iter()
+        .flat_map(|section| section.lines())
+        .filter(|line| !line.trim().is_empty())
+        .collect::<Vec<_>>()
+        .join("\n")
     }
 }
 
@@ -285,7 +289,7 @@ fn from_raw(raw: RawDay) -> DateInfo {
         events: Vec::new(),
         event_error: None,
         almanac: AlmanacAvailability::Available(Box::new(raw)),
-        source: "農曆／農民曆：LunarData；節氣：核准 HKO UTC+08:00；raw／校正清單隨包提供".into(),
+        source: "".into(),
     }
 }
 
@@ -326,7 +330,7 @@ fn from_historical(day: crate::data::HistoricalDay) -> DateInfo {
         events: Vec::new(),
         event_error: None,
         almanac: AlmanacAvailability::OutOfRange,
-        source: "農曆：lunar_rust 1.0.1 歷史候選＋核准 HKO 校正；節氣：HKO UTC+08:00；不補造農民曆"
+        source: "農曆：lunar_rust 1.0.1"
             .into(),
     }
 }

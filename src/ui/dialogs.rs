@@ -372,7 +372,7 @@ impl CalendarApp {
     }
 
     pub(super) fn export_panels(&mut self, ui: &mut egui::Ui, origin: egui::Pos2) {
-        let left = panels::region(origin, 16.0, 68.0, 192.0, 526.0);
+        let left = panels::region(origin, 16.0, 44.0, 192.0, 526.0);
         ui.painter().rect_filled(left, 0.0, PAPER);
         ui.painter()
             .rect_stroke(left, 0.0, Stroke::new(1.0_f32, BORDER), StrokeKind::Inside);
@@ -439,7 +439,7 @@ impl CalendarApp {
                     }
                 });
         });
-        let preview = panels::region(origin, 224.0, 68.0, 600.0, 370.0);
+        let preview = panels::region(origin, 224.0, 44.0, 600.0, 370.0);
         ui.painter().rect_filled(preview, 0.0, PAPER);
         ui.painter().rect_stroke(
             preview,
@@ -535,7 +535,7 @@ impl CalendarApp {
                 );
             });
         });
-        let status = panels::region(origin, 224.0, 450.0, 600.0, 144.0);
+        let status = panels::region(origin, 224.0, 426.0, 600.0, 144.0);
         ui.painter().rect_filled(status, 0.0, PAPER);
         ui.scope_builder(UiBuilder::new().max_rect(status.shrink(10.0)), |ui| {
             ui.label(&self.export_status);

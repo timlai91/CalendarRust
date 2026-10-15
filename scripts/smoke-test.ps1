@@ -77,7 +77,7 @@ public static class CalendarRustSmokeNative {
         Rect rect;
         if (!GetClientRect(window, out rect)) throw new InvalidOperationException("No client rectangle");
         int x = (rect.Right - rect.Left) * 520 / 840;
-        int y = (rect.Bottom - rect.Top) * 208 / 664;
+        int y = (rect.Bottom - rect.Top) * 184 / 640;
         var point = new IntPtr((y << 16) | x);
         if (!PostMessage(window, 0x0200, IntPtr.Zero, point) ||
             !PostMessage(window, 0x0201, new IntPtr(1), point) ||

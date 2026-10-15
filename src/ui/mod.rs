@@ -20,6 +20,7 @@ pub(super) const BORDER: Color32 = Color32::from_rgb(0xBD, 0xC9, 0xCA);
 pub(super) const SELECT: Color32 = Color32::from_rgb(0xE5, 0xED, 0xF1);
 pub(super) const RED: Color32 = Color32::from_rgb(0xB8, 0x33, 0x29);
 pub(super) const GREEN: Color32 = Color32::from_rgb(0x35, 0x78, 0x38);
+const LAYOUT_SIZE: egui::Vec2 = egui::vec2(840.0, 640.0);
 
 pub(super) enum Action {
     Select(NaiveDate),
@@ -138,7 +139,7 @@ pub fn run() -> Result<()> {
     let selected_info = provider.info(session.selected);
     let today_info = provider.info(today);
     let mut viewport = egui::ViewportBuilder::default()
-        .with_inner_size([840.0, 664.0])
+        .with_inner_size(LAYOUT_SIZE)
         .with_min_inner_size([360.0, 280.0])
         .with_resizable(false)
         .with_maximize_button(false);
@@ -510,8 +511,8 @@ impl eframe::App for CalendarApp {
             )));
             if let Some(size) = ctx.input(|input| input.viewport().monitor_size) {
                 ctx.send_viewport_cmd(ViewportCommand::InnerSize(egui::vec2(
-                    840.0_f32.min(size.x - 48.0),
-                    664.0_f32.min(size.y - 96.0),
+                    LAYOUT_SIZE.x.min(size.x - 48.0),
+                    LAYOUT_SIZE.y.min(size.y - 96.0),
                 )));
             }
         }
@@ -553,7 +554,7 @@ impl eframe::App for CalendarApp {
                     .auto_shrink([false, false])
                     .show(ui, |ui| {
                         let (rect, response) =
-                            ui.allocate_exact_size(egui::vec2(840.0, 664.0), egui::Sense::click());
+                            ui.allocate_exact_size(LAYOUT_SIZE, egui::Sense::click());
                         self.draw_layout(ui, rect.min);
                         response.context_menu(|ui| self.context_menu(ui));
                     });

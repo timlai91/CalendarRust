@@ -1,3 +1,5 @@
 /target/
 /dist/
 *.tmp
+analysis.md
+/.codegraph/

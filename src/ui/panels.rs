@@ -31,39 +31,35 @@ fn panel(ui: &Ui, rect: Rect, fill: Color32) {
 
 impl CalendarApp {
     pub(super) fn draw_layout(&mut self, ui: &mut Ui, origin: Pos2) {
-        self.banner(ui, region(origin, 0.0, 0.0, 840.0, 52.0));
+        self.banner(ui, region(origin, 0.0, 0.0, 840.0, 32.0));
         if self.session.mode == ViewMode::YearExport {
             self.export_panels(ui, origin);
         } else {
-            self.clock_panel(ui, region(origin, 16.0, 68.0, 192.0, 172.0));
-            self.today_panel(ui, region(origin, 16.0, 252.0, 192.0, 208.0));
-            self.event_panel(ui, region(origin, 16.0, 472.0, 192.0, 122.0));
-            let main = region(origin, 224.0, 68.0, 600.0, 370.0);
+            self.clock_panel(ui, region(origin, 16.0, 44.0, 192.0, 172.0));
+            self.today_panel(ui, region(origin, 16.0, 228.0, 192.0, 208.0));
+            self.event_panel(ui, region(origin, 16.0, 448.0, 192.0, 122.0));
+            let main = region(origin, 224.0, 44.0, 600.0, 370.0);
             if self.session.mode == ViewMode::Month {
                 self.month_panel(ui, main);
             } else {
                 self.day_panel(ui, main);
             }
-            self.memo_panel(ui, region(origin, 224.0, 450.0, 600.0, 144.0));
+            self.memo_panel(ui, region(origin, 224.0, 426.0, 600.0, 144.0));
         }
-        self.date_strip(ui, region(origin, 0.0, 606.0, 840.0, 28.0));
-        self.footer(ui, region(origin, 0.0, 634.0, 840.0, 30.0));
+        self.date_strip(ui, region(origin, 0.0, 582.0, 840.0, 28.0));
+        self.footer(ui, region(origin, 0.0, 610.0, 840.0, 30.0));
     }
 
     fn banner(&mut self, ui: &mut Ui, rect: Rect) {
         ui.painter().rect_filled(rect, 0.0, PAPER);
-        text(
-            ui,
-            rect.min + vec2(16.0, 26.0),
-            Align2::LEFT_CENTER,
-            "CalendarRust",
-            23.0,
-            INK,
-        );
-        let controls = Rect::from_min_max(rect.min + vec2(208.0, 10.0), rect.max - vec2(10.0, 8.0));
-        ui.scope_builder(UiBuilder::new().max_rect(controls), |ui| {
-            ui.spacing_mut().item_spacing.x = 6.0;
-            ui.horizontal(|ui| {
+        let controls = Rect::from_min_max(rect.min + vec2(224.0, 4.0), rect.max - vec2(10.0, 4.0));
+        ui.scope_builder(
+            UiBuilder::new()
+                .max_rect(controls)
+                .layout(egui::Layout::left_to_right(egui::Align::Center)),
+            |ui| {
+                ui.spacing_mut().item_spacing.x = 6.0;
+                ui.spacing_mut().interact_size.y = controls.height();
                 if ui
                     .button(match self.settings.display {
                         CalendarDisplay::Roc => "民國",
@@ -131,11 +127,11 @@ impl CalendarApp {
                         self.action = Some(Action::Mode(mode));
                     }
                 }
-                if ui.small_button("設定").clicked() {
+                if ui.button("設定").clicked() {
                     self.action = Some(Action::Tools);
                 }
-            });
-        });
+            },
+        );
     }
 
     fn clock_panel(&self, ui: &mut Ui, rect: Rect) {
@@ -723,8 +719,8 @@ impl CalendarApp {
             UiBuilder::new().max_rect(rect.shrink2(vec2(12.0, 3.0))),
             |ui| {
                 ui.horizontal(|ui| {
-                    ui.label(RichText::new("CalendarRust · 獨立 Rust 重建").size(11.0));
-                    ui.separator();
+                    // ui.label(RichText::new("CalendarRust · 獨立 Rust 重建").size(11.0));
+                    // ui.separator();
                     if ui.button("農民曆").clicked() {
                         self.action = Some(Action::Almanac);
                     }
@@ -734,7 +730,7 @@ impl CalendarApp {
                     if ui.button("說明").clicked() {
                         self.action = Some(Action::Help);
                     }
-                    ui.label(RichText::new("曆法全範圍獨立核對未完成").size(10.0));
+                    // ui.label(RichText::new("曆法全範圍獨立核對未完成").size(10.0));
                     ui.with_layout(egui::Layout::right_to_left(egui::Align::Center), |ui| {
                         if ui.button("離開").clicked() {
                             self.action = Some(Action::Exit);
