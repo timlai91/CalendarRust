@@ -75,6 +75,7 @@ impl Settings {
 
 pub trait MemoRepository {
     fn load_memo(&self, date: NaiveDate) -> Result<String>;
+    fn memo_dates(&self) -> Result<BTreeSet<NaiveDate>>;
     fn save_memo(&mut self, date: NaiveDate, body: &str) -> Result<()>;
 }
 
@@ -361,6 +362,22 @@ impl MemoRepository for Store {
             .optional()
             .context("備忘讀取失敗，不會以空內容覆寫")?
             .unwrap_or_default())
+    }
+
+    fn memo_dates(&self) -> Result<BTreeSet<NaiveDate>> {
+        let mut statement = self
+            .db
+            .prepare("SELECT date FROM memo WHERE body <> ''")
+            .context("備忘日期清單讀取失敗")?;
+        let rows = statement.query_map([], |row| row.get::<_, String>(0))?;
+        let mut dates = BTreeSet::new();
+        for key in rows {
+            let key = key.context("備忘日期讀取失敗")?;
+            let date = NaiveDate::parse_from_str(&key, "%Y-%m-%d").context("備忘日期無效")?;
+            ensure!(date.to_string() == key, "備忘日期鍵無效");
+            dates.insert(date);
+        }
+        Ok(dates)
     }
 
     fn save_memo(&mut self, date: NaiveDate, body: &str) -> Result<()> {

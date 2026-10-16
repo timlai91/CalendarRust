@@ -359,6 +359,11 @@ impl CalendarApp {
             let in_month = info.date.month() == self.grid.month;
             let selected = info.date == self.session.selected;
             let today = info.date == self.session.today;
+            let has_memo = self.session.has_memo(info.date);
+            let mut tooltip = info.tooltip();
+            if has_memo {
+                tooltip.push_str("\n有選日備忘");
+            }
             let response = ui.interact(
                 cell,
                 egui::Id::new(("date", info.date)),
@@ -372,7 +377,7 @@ impl CalendarApp {
                 egui::WidgetInfo::labeled(
                     egui::WidgetType::Button,
                     calendar::selectable(info.date),
-                    info.tooltip(),
+                    &tooltip,
                 )
             });
             if response.gained_focus() {
@@ -386,6 +391,8 @@ impl CalendarApp {
                     Stroke::new(2.0_f32, Color32::from_rgb(0x69, 0x8E, 0x9E)),
                     StrokeKind::Inside,
                 );
+            } else if has_memo {
+                ui.painter().rect_filled(cell.shrink(1.0), 0.0, MEMO_BG);
             } else if response.hovered() {
                 ui.painter().rect_filled(
                     cell.shrink(1.0),
@@ -401,7 +408,7 @@ impl CalendarApp {
                     StrokeKind::Inside,
                 );
                 self.date_keys(ui, info.date);
-                response.show_tooltip_text(info.tooltip());
+                response.show_tooltip_text(&tooltip);
             }
             let p = ui.painter().with_clip_rect(cell.shrink(2.0));
             p.text(
@@ -442,6 +449,9 @@ impl CalendarApp {
                     Color32::from_rgb(0x95, 0x61, 0x3B),
                 );
             }
+            if has_memo {
+                p.circle_filled(pos2(cell.max.x - 8.0, cell.min.y + 8.0), 3.0, MEMO_MARK);
+            }
             if response.clicked() {
                 response.request_focus();
                 self.action = Some(Action::Select(info.date));
@@ -453,7 +463,7 @@ impl CalendarApp {
                     self.action = Some(action);
                 }
             });
-            response.on_hover_text(info.tooltip());
+            response.on_hover_text(&tooltip);
             if column == 0 {
                 let (year, week) = calendar::row_week(info.date);
                 text(
@@ -607,6 +617,16 @@ impl CalendarApp {
             11.0,
             color,
         );
+        ui.painter()
+            .circle_filled(pos2(status.max.x - 67.0, status.center().y), 3.0, MEMO_MARK);
+        text(
+            ui,
+            status.max - vec2(8.0, 10.5),
+            Align2::RIGHT_CENTER,
+            "有備忘",
+            11.0,
+            MEMO_MARK,
+        );
     }
 
     fn day_panel(&mut self, ui: &mut Ui, rect: Rect) {
@@ -663,6 +683,14 @@ impl CalendarApp {
                 vec2(width, 28.0),
             );
             let response = ui.interact(cell, egui::Id::new(("strip", date)), Sense::click());
+            let has_memo = self.session.has_memo(date);
+            let mut tooltip = format!("{date} · 列星期四 ISO 週 {:?}", calendar::row_week(date));
+            if has_memo {
+                tooltip.push_str("\n有選日備忘");
+            }
+            response.widget_info(|| {
+                egui::WidgetInfo::labeled(egui::WidgetType::Button, true, &tooltip)
+            });
             if date == self.session.selected {
                 ui.painter().rect_filled(cell.shrink(1.0), 0.0, SELECT);
                 ui.painter().rect_stroke(
@@ -670,6 +698,15 @@ impl CalendarApp {
                     0.0,
                     Stroke::new(1.5_f32, INK),
                     StrokeKind::Inside,
+                );
+            } else if has_memo {
+                ui.painter().rect_filled(cell.shrink(1.0), 0.0, MEMO_BG);
+            }
+            if has_memo {
+                ui.painter().circle_filled(
+                    pos2(cell.max.x - 4.0, cell.min.y + 4.0),
+                    2.0,
+                    MEMO_MARK,
                 );
             }
             text(
@@ -692,8 +729,7 @@ impl CalendarApp {
                 self.action = Some(Action::Select(date));
             }
             if response.has_focus() {
-                response
-                    .show_tooltip_text(format!("{date} · 列週數 {:?}", calendar::row_week(date)));
+                response.show_tooltip_text(&tooltip);
             }
             if response.gained_focus() {
                 response.scroll_to_me(Some(egui::Align::Center));
@@ -705,10 +741,7 @@ impl CalendarApp {
                     self.action = Some(action);
                 }
             });
-            response.on_hover_text(format!(
-                "{date} · 列星期四 ISO 週 {:?}",
-                calendar::row_week(date)
-            ));
+            response.on_hover_text(&tooltip);
         }
     }
 

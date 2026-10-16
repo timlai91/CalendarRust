@@ -1,4 +1,5 @@
 use calendar_rust::{
+    app::Session,
     migration::{self, Conflict},
     storage::{self, MemoRepository, Settings, Store},
 };
@@ -55,6 +56,39 @@ fn backup_uses_live_wal_snapshot_and_restores_memos_images_settings() {
     );
     let before = storage::verify_backup(&safety).unwrap();
     assert_eq!(before.manifest.source_version, "source-B");
+}
+
+#[test]
+fn memo_markers_refresh_after_import_and_full_restore() {
+    let dir = tempfile::tempdir().unwrap();
+    let mut store = Store::open(&dir.path().join("user")).unwrap();
+    let today = date("2026-10-14");
+    let previous = date("2026-09-30");
+    let imported = date("2026-10-10");
+    store.save_memo(previous, "原有備忘").unwrap();
+    let backup = dir.path().join("backup.zip");
+    store.backup(&backup, "source").unwrap();
+    let mut session = Session::new(store, today).unwrap();
+    assert!(session.has_memo(previous));
+    let source = dir.path().join("source");
+    std::fs::create_dir(&source).unwrap();
+    std::fs::write(source.join("20261010.txt"), "匯入備忘😀").unwrap();
+    let plan = migration::scan(&source, None, None, None).unwrap();
+    migration::apply(&plan, &mut session.repository, "source").unwrap();
+    session.reload_memo().unwrap();
+    assert!(session.has_memo(previous));
+    assert!(session.has_memo(imported));
+    session.memo.edit("還原前新增".into()).unwrap();
+    session.flush().unwrap();
+    assert!(session.has_memo(today));
+    session
+        .repository
+        .restore(storage::verify_backup(&backup).unwrap(), "source")
+        .unwrap();
+    session.reload_memo().unwrap();
+    assert!(session.has_memo(previous));
+    assert!(!session.has_memo(imported));
+    assert!(!session.has_memo(today));
 }
 
 #[test]

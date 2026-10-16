@@ -4,7 +4,10 @@ use crate::{
 };
 use anyhow::{Result, ensure};
 use chrono::{Datelike, Duration, NaiveDate};
-use std::time::{Duration as StdDuration, Instant};
+use std::{
+    collections::BTreeSet,
+    time::{Duration as StdDuration, Instant},
+};
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum ViewMode {
@@ -83,12 +86,14 @@ pub struct Session<R: MemoRepository> {
     pub mode: ViewMode,
     pub memo: MemoDraft,
     pub notice: Option<String>,
+    memo_dates: BTreeSet<NaiveDate>,
 }
 
 impl<R: MemoRepository> Session<R> {
     pub fn new(repository: R, today: NaiveDate) -> Result<Self> {
         let selected = calendar::clamp(today);
         let body = repository.load_memo(selected)?;
+        let memo_dates = repository.memo_dates()?;
         Ok(Self {
             repository,
             today,
@@ -98,7 +103,12 @@ impl<R: MemoRepository> Session<R> {
             memo: MemoDraft::new(selected, body),
             notice: (!calendar::selectable(today))
                 .then(|| "系統今天超出 1912–2050，選日已定位支援邊界，今日仍顯示真實日期".into()),
+            memo_dates,
         })
+    }
+
+    pub fn has_memo(&self, date: NaiveDate) -> bool {
+        self.memo_dates.contains(&date)
     }
 
     pub fn flush(&mut self) -> Result<()> {
@@ -108,6 +118,11 @@ impl<R: MemoRepository> Session<R> {
         self.memo.state = SaveState::Saving;
         match self.repository.save_memo(self.memo.date, &self.memo.body) {
             Ok(()) => {
+                if self.memo.body.is_empty() {
+                    self.memo_dates.remove(&self.memo.date);
+                } else {
+                    self.memo_dates.insert(self.memo.date);
+                }
                 self.memo.saved_body = self.memo.body.clone();
                 self.memo.saved_revision = self.memo.revision;
                 self.memo.state = SaveState::Saved;
@@ -181,7 +196,9 @@ impl<R: MemoRepository> Session<R> {
     pub fn reload_memo(&mut self) -> Result<()> {
         ensure!(!self.memo.dirty(), "尚有未保存草稿，拒絕載入覆蓋");
         let body = self.repository.load_memo(self.selected)?;
+        let memo_dates = self.repository.memo_dates()?;
         self.memo = MemoDraft::new(self.selected, body);
+        self.memo_dates = memo_dates;
         Ok(())
     }
 }

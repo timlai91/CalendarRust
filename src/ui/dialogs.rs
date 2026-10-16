@@ -38,6 +38,7 @@ impl CalendarApp {
             egui::Window::new("CalendarRust 離線說明").open(&mut self.help).default_width(560.0).vscroll(true).show(ctx, |ui| {
                 ui.heading("操作");
                 ui.label("上方選年月，右緣按鈕切年／月或回今天。日期格及底部日期帶共用選日命令。\n今天卡片與時鐘不隨選日改變。左下事件、右下備忘、日曆圖片及農民曆均屬於選日。");
+                ui.label("月曆及下方日期帶以淡黃色底及右上圓點表示該日已有保存的備忘，月曆包含相鄰月份日期；選日保留原外框與備忘圓點，月曆的今天仍以左上圓點標示。清空並保存後會移除備忘標示。");
                 ui.label("備忘停止輸入 1 秒後保存；失焦、切日／月／模式、Ctrl+S、離開時立即保存。清空會刪除，純空白仍保存。\n失敗時保留草稿並阻擋切換，可重試、另存草稿，或明確放棄修改。");
                 ui.label("Tab 移動焦點，日期格方向鍵移動焦點，Enter／空白選日；備忘內保留文字游標及 Ctrl+A。\nCtrl+F1/F2 上／下一年，Ctrl+F3/F4 上／下一月，Ctrl+F5 今天，Ctrl+F6 曆別，Ctrl+F7 月／日曆，Ctrl+T 置頂，Ctrl+I 說明，Ctrl+A 關於，Ctrl+Q 離開。");
                 ui.label("設定的介面縮放會同步等比調整主視窗，啟動及還原設定時也會套用；超過螢幕可用範圍時限制視窗大小，內容可水平／垂直捲動。\n圖片支援 JPEG/BMP/ICO/PNG，Windows WMF/EMF 靜態轉換；不會刪外部原圖。\n輸出年曆可選七色及獨立抬頭圖，不需 Excel。匯出可取消且只在成功後提交目的檔。");

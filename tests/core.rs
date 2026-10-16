@@ -291,17 +291,101 @@ struct FakeRepository {
     memos: BTreeMap<NaiveDate, String>,
     fail_save: bool,
     fail_load: bool,
+    fail_dates: bool,
 }
 impl MemoRepository for FakeRepository {
     fn load_memo(&self, date: NaiveDate) -> anyhow::Result<String> {
         anyhow::ensure!(!self.fail_load, "injected read failure");
         Ok(self.memos.get(&date).cloned().unwrap_or_default())
     }
+    fn memo_dates(&self) -> anyhow::Result<std::collections::BTreeSet<NaiveDate>> {
+        anyhow::ensure!(!self.fail_dates, "injected date list failure");
+        Ok(self
+            .memos
+            .iter()
+            .filter_map(|(&date, body)| (!body.is_empty()).then_some(date))
+            .collect())
+    }
     fn save_memo(&mut self, date: NaiveDate, body: &str) -> anyhow::Result<()> {
         anyhow::ensure!(!self.fail_save, "injected write failure");
         self.memos.insert(date, body.into());
         Ok(())
     }
+}
+
+#[test]
+fn memo_markers_track_saved_content_across_dates_and_failed_deletions() {
+    let today = date("2026-10-14");
+    let previous = date("2026-09-30");
+    let next = date("2026-11-01");
+    let mut repository = FakeRepository::default();
+    repository.memos.insert(previous, "前月".into());
+    repository.memos.insert(next, " \n".into());
+    repository.memos.insert(today, String::new());
+    let mut session = Session::new(repository, today).unwrap();
+    assert!(session.has_memo(previous));
+    assert!(session.has_memo(next));
+    assert!(!session.has_memo(today));
+    session.memo.edit("新備忘😀".into()).unwrap();
+    assert!(
+        !session.has_memo(today),
+        "unsaved drafts are not stored data"
+    );
+    session.flush().unwrap();
+    assert!(session.has_memo(today));
+    session.navigate(1).unwrap();
+    assert!(session.has_memo(today));
+    session.select(today).unwrap();
+    session.memo.edit(String::new()).unwrap();
+    session.repository.fail_save = true;
+    assert!(session.flush().is_err());
+    assert!(
+        session.has_memo(today),
+        "failed deletion must keep the marker"
+    );
+    session.memo.discard();
+    assert!(session.has_memo(today));
+    session.memo.edit(String::new()).unwrap();
+    session.repository.fail_save = false;
+    session.flush().unwrap();
+    assert!(!session.has_memo(today));
+    session.memo.edit(" ".into()).unwrap();
+    session.flush().unwrap();
+    assert!(session.has_memo(today), "whitespace is a stored memo");
+}
+
+#[test]
+fn memo_marker_reload_is_atomic_and_read_failures_are_reported() {
+    let today = date("2026-10-14");
+    let other = date("2026-10-10");
+    assert!(
+        Session::new(
+            FakeRepository {
+                fail_dates: true,
+                ..Default::default()
+            },
+            today
+        )
+        .is_err()
+    );
+    let mut session = Session::new(FakeRepository::default(), today).unwrap();
+    session.memo.edit("已保存".into()).unwrap();
+    session.flush().unwrap();
+    session.repository.memos.remove(&today);
+    session.repository.memos.insert(other, "外部匯入".into());
+    session.repository.fail_dates = true;
+    assert!(session.reload_memo().is_err());
+    assert!(session.has_memo(today));
+    assert!(!session.has_memo(other));
+    assert_eq!(session.memo.body, "已保存");
+    session.repository.fail_dates = false;
+    session.memo.edit("未保存".into()).unwrap();
+    assert!(session.reload_memo().is_err());
+    session.memo.discard();
+    session.reload_memo().unwrap();
+    assert!(!session.has_memo(today));
+    assert!(session.has_memo(other));
+    assert!(session.memo.body.is_empty());
 }
 
 #[test]
@@ -356,6 +440,7 @@ fn sqlite_memo_unicode_clear_whitespace_and_reopen_are_persistent() {
         store
             .save_memo(day, "繁體中文 emoji 😀\nsecond line")
             .unwrap();
+        assert_eq!(store.memo_dates().unwrap(), [day].into_iter().collect());
         assert!(
             Store::open(directory.path()).is_err(),
             "second writer must be excluded"
@@ -367,12 +452,16 @@ fn sqlite_memo_unicode_clear_whitespace_and_reopen_are_persistent() {
             store.load_memo(day).unwrap(),
             "繁體中文 emoji 😀\nsecond line"
         );
+        assert_eq!(store.memo_dates().unwrap(), [day].into_iter().collect());
         store.save_memo(day, " ").unwrap();
         assert_eq!(store.load_memo(day).unwrap(), " ");
+        assert_eq!(store.memo_dates().unwrap(), [day].into_iter().collect());
         store.save_memo(day, "").unwrap();
+        assert!(store.memo_dates().unwrap().is_empty());
     }
     let store = Store::open(directory.path()).unwrap();
     assert_eq!(store.load_memo(day).unwrap(), "");
+    assert!(store.memo_dates().unwrap().is_empty());
 }
 
 #[test]
