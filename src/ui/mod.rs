@@ -23,6 +23,36 @@ pub(super) const GREEN: Color32 = Color32::from_rgb(0x35, 0x78, 0x38);
 const LAYOUT_SIZE: egui::Vec2 = egui::vec2(840.0, 640.0);
 const APP_ICON_PNG: &[u8] = include_bytes!("..\\..\\assets\\icons\\512.png");
 
+#[derive(Default)]
+struct WindowSizing {
+    zoom: Option<f32>,
+    resize_pending: bool,
+}
+
+impl WindowSizing {
+    fn sync(&mut self, ctx: &egui::Context) {
+        let zoom = ctx.zoom_factor();
+        if self.zoom != Some(zoom) {
+            self.zoom = Some(zoom);
+            self.resize_pending = true;
+            // Zoom takes effect before viewport coordinates catch up on the next pass.
+            ctx.request_repaint();
+        } else if std::mem::take(&mut self.resize_pending) {
+            let size = ctx.input(|input| {
+                input
+                    .viewport()
+                    .monitor_size
+                    .map_or(LAYOUT_SIZE, |monitor| {
+                        let available = monitor - egui::vec2(48.0, 96.0) / zoom;
+                        LAYOUT_SIZE.min(available.max(egui::Vec2::splat(1.0)))
+                    })
+            });
+            // Viewport commands already include the active zoom and native DPI scale.
+            ctx.send_viewport_cmd(ViewportCommand::InnerSize(size));
+        }
+    }
+}
+
 pub(super) enum Action {
     Select(NaiveDate),
     Month(i32),
@@ -78,6 +108,7 @@ pub(super) struct CalendarApp {
     close_wait: bool,
     allow_close: bool,
     first_frame: bool,
+    window_sizing: WindowSizing,
     screenshot: Option<PathBuf>,
     frames: u32,
 }
@@ -205,6 +236,7 @@ pub fn run() -> Result<()> {
                 close_wait: false,
                 allow_close: false,
                 first_frame: true,
+                window_sizing: WindowSizing::default(),
                 screenshot,
                 frames: 0,
             };
@@ -512,13 +544,8 @@ impl eframe::App for CalendarApp {
                 "CalendarRust · 今天 {}",
                 self.session.today
             )));
-            if let Some(size) = ctx.input(|input| input.viewport().monitor_size) {
-                ctx.send_viewport_cmd(ViewportCommand::InnerSize(egui::vec2(
-                    LAYOUT_SIZE.x.min(size.x - 48.0),
-                    LAYOUT_SIZE.y.min(size.y - 96.0),
-                )));
-            }
         }
+        self.window_sizing.sync(ctx);
         if let Some(rect) = ctx.input(|input| input.viewport().outer_rect) {
             self.settings.window_position = Some([rect.min.x, rect.min.y]);
         }
@@ -634,7 +661,75 @@ impl Drop for CalendarApp {
 
 #[cfg(test)]
 mod tests {
-    use super::APP_ICON_PNG;
+    use super::{APP_ICON_PNG, LAYOUT_SIZE, WindowSizing};
+    use eframe::egui::{self, ViewportCommand};
+
+    fn sizing_frame(
+        sizing: &mut WindowSizing,
+        ctx: &egui::Context,
+        monitor_pixels: Option<egui::Vec2>,
+        native_scale: f32,
+    ) -> Vec<ViewportCommand> {
+        let mut input = egui::RawInput::default();
+        let viewport = input.viewports.get_mut(&egui::ViewportId::ROOT).unwrap();
+        viewport.native_pixels_per_point = Some(native_scale);
+        viewport.monitor_size =
+            monitor_pixels.map(|size| size / (ctx.zoom_factor() * native_scale));
+        ctx.run(input, |ctx| sizing.sync(ctx))
+            .viewport_output
+            .remove(&egui::ViewportId::ROOT)
+            .unwrap()
+            .commands
+    }
+
+    fn requested_size(commands: &[ViewportCommand]) -> Option<egui::Vec2> {
+        commands.iter().find_map(|command| match command {
+            ViewportCommand::InnerSize(size) => Some(*size),
+            _ => None,
+        })
+    }
+
+    #[test]
+    fn window_tracks_zoom_in_both_directions_at_each_native_dpi() {
+        for native_scale in [1.0, 1.25, 1.5, 2.0] {
+            let ctx = egui::Context::default();
+            let mut sizing = WindowSizing::default();
+            for zoom in [1.0, 1.23, 1.5, 2.0, 0.75, 1.0] {
+                ctx.set_zoom_factor(zoom);
+                assert!(
+                    requested_size(&sizing_frame(&mut sizing, &ctx, None, native_scale)).is_none()
+                );
+                let commands = sizing_frame(&mut sizing, &ctx, None, native_scale);
+                let size = requested_size(&commands).unwrap();
+                assert_eq!(size, LAYOUT_SIZE);
+                assert!(
+                    (size * ctx.pixels_per_point() - LAYOUT_SIZE * zoom * native_scale).length()
+                        < 0.01
+                );
+                assert!(
+                    requested_size(&sizing_frame(&mut sizing, &ctx, None, native_scale)).is_none()
+                );
+            }
+        }
+    }
+
+    #[test]
+    fn saved_zoom_is_applied_on_startup_with_monitor_limits() {
+        let monitor = egui::vec2(1920.0, 1080.0);
+        for native_scale in [1.0, 1.25, 1.5, 2.0] {
+            for zoom in [0.75, 1.0, 1.23, 1.5, 2.0] {
+                let ctx = egui::Context::default();
+                let mut sizing = WindowSizing::default();
+                ctx.set_zoom_factor(zoom);
+                sizing_frame(&mut sizing, &ctx, Some(monitor), native_scale);
+                let commands = sizing_frame(&mut sizing, &ctx, Some(monitor), native_scale);
+                let pixels = requested_size(&commands).unwrap() * ctx.pixels_per_point();
+                let available = monitor - egui::vec2(48.0, 96.0) * native_scale;
+                let expected = (LAYOUT_SIZE * zoom * native_scale).min(available);
+                assert!((pixels - expected).length() < 0.01);
+            }
+        }
+    }
 
     #[test]
     fn embedded_app_icon_is_valid_512px_rgba() {
