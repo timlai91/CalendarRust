@@ -146,6 +146,29 @@ impl RawDay {
         Ok(())
     }
 
+    pub fn twelve_officer_description(&self) -> Result<String> {
+        if self.twelve_officer.is_null() {
+            return Ok("來源未列".into());
+        }
+        let name = self.twelve_officer["name"]
+            .as_str()
+            .filter(|name| !name.trim().is_empty())
+            .context("十二建除名稱缺漏或無效")?;
+        let god = self.twelve_officer["god"]
+            .as_str()
+            .filter(|god| !god.trim().is_empty())
+            .context("十二建除值日神缺漏或無效")?;
+        let is_yellow_road = self.twelve_officer["isYellowRoad"]
+            .as_bool()
+            .context("十二建除黃黑道標記缺漏或無效")?;
+        let road = if is_yellow_road {
+            "黃道日"
+        } else {
+            "黑道日"
+        };
+        Ok(format!("{name}（值日神：{god}，{road}）"))
+    }
+
     pub fn validate_hours(&self) -> Result<()> {
         let expected: BTreeSet<&str> = "子丑寅卯辰巳午未申酉戌亥"
             .char_indices()

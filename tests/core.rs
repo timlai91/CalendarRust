@@ -139,6 +139,53 @@ fn tooltip_joins_only_nonempty_lines() {
 }
 
 #[test]
+fn twelve_officer_description_formats_fields_without_changing_source() {
+    let mut source = LunarData::open(&data_dir()).unwrap();
+    let mut raw = source.day(date("2026-10-16")).unwrap();
+    assert!(raw.twelve_officer_description().is_ok());
+    for (is_yellow_road, expected) in [
+        (false, "除（值日神：玉堂，黑道日）"),
+        (true, "除（值日神：玉堂，黃道日）"),
+    ] {
+        let value = serde_json::json!({
+            "god": "玉堂",
+            "isYellowRoad": is_yellow_road,
+            "name": "除",
+        });
+        raw.twelve_officer = value.clone();
+        assert_eq!(raw.twelve_officer_description().unwrap(), expected);
+        assert_eq!(raw.twelve_officer, value);
+    }
+    raw.twelve_officer = serde_json::Value::Null;
+    assert_eq!(raw.twelve_officer_description().unwrap(), "來源未列");
+}
+
+#[test]
+fn twelve_officer_description_rejects_invalid_source_fields() {
+    let mut source = LunarData::open(&data_dir()).unwrap();
+    let mut raw = source.day(date("2026-10-16")).unwrap();
+    for value in [
+        serde_json::json!({}),
+        serde_json::json!("除"),
+        serde_json::json!({"god": "玉堂", "isYellowRoad": false}),
+        serde_json::json!({"name": 1, "god": "玉堂", "isYellowRoad": false}),
+        serde_json::json!({"name": " \t", "god": "玉堂", "isYellowRoad": false}),
+        serde_json::json!({"name": "除", "isYellowRoad": false}),
+        serde_json::json!({"name": "除", "god": null, "isYellowRoad": false}),
+        serde_json::json!({"name": "除", "god": " \t", "isYellowRoad": false}),
+        serde_json::json!({"name": "除", "god": "玉堂"}),
+        serde_json::json!({"name": "除", "god": "玉堂", "isYellowRoad": "false"}),
+    ] {
+        raw.twelve_officer = value;
+        assert!(
+            raw.twelve_officer_description().is_err(),
+            "{}",
+            raw.twelve_officer
+        );
+    }
+}
+
+#[test]
 fn packaged_source_fidelity_and_audited_solar_term_correction() {
     let mut source = LunarData::open(&data_dir()).expect("請先依 README 建置離線資料包");
     assert_eq!(source.manifest.full_snapshot_invalid_solar_terms, 556);

@@ -180,9 +180,9 @@ impl CalendarApp {
                             AlmanacAvailability::Available(raw) => {
                                 if let Some(image)=&self.image {
                                     ui.add(egui::Image::new((image.id(),image.size_vec2())).fit_to_exact_size(vec2(150.0,150.0)));
-                                    ui.label("選日圖片（自選圖優先；否則農曆年生肖）");
+                                    // ui.label("選日圖片");
                                 }
-                                ui.heading("宜／忌（保持來源順序）");
+                                ui.heading("宜／忌");
                                 list(ui,"宜",&raw.auspicious);
                                 list(ui,"忌",&raw.inauspicious);
                                 ui.separator();
@@ -190,7 +190,10 @@ impl CalendarApp {
                                 ui.label(format!("月干支：{}",raw.month_ganzhi.full));
                                 ui.label(format!("沖生肖：{}　煞：{}　{}　被沖年干支：{}",raw.zodiac_clash,raw.clash_direction,raw.clash_detail,raw.clash_year_ganzhi));
                                 ui.label(format!("彭祖百忌：{}",raw.peng_taboo));
-                                ui.label(format!("十二建除：{}",raw.twelve_officer));
+                                match raw.twelve_officer_description() {
+                                    Ok(description) => { ui.label(format!("十二建除：{description}")); }
+                                    Err(error) => { ui.colored_label(RED,format!("十二建除欄位不可用：{error}")); }
+                                }
                                 ui.label(format!("胎神：{}",raw.fetal_god));
                                 for (name,value) in &raw.lucky_direction { ui.label(format!("{name}：{value}")); }
                                 list(ui,"吉神",&raw.good_gods);
@@ -204,10 +207,10 @@ impl CalendarApp {
                                     }
                                     Err(error) => { ui.colored_label(RED,error.to_string()); }
                                 }
-                                ui.heading("當前節氣期間（不等於當日交節）");
+                                ui.heading("當前節氣期間");
                                 match &info.solar_term {
                                     Ok(Some(term)) => {
-                                        ui.label(format!("{}：{} ≤ 本日 < {}；下個節氣 {} {}",term.name,term.start_date,term.end_date,term.next_name,term.next_date));
+                                        ui.label(format!("{}：{} ~ {}；下個節氣 {} {}",term.name,term.start_date,term.end_date,term.next_name,term.next_date));
                                         ui.label(&term.desc);
                                     }
                                     Ok(None) => { ui.label("來源未列"); }
