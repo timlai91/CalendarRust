@@ -97,7 +97,13 @@ impl DateInfo {
         let events = self
             .events
             .iter()
-            .map(|e| format!("{}〔{}〕", e.name, e.source))
+            .map(|e| {
+                if e.source.trim().is_empty() {
+                    e.name.clone()
+                } else {
+                    format!("{}〔{}〕", e.name, e.source)
+                }
+            })
             .collect::<Vec<_>>()
             .join("\n");
         let term = match &self.solar_term {

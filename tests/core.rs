@@ -80,7 +80,23 @@ fn tooltip_joins_only_nonempty_lines() {
         next_date: date("2026-10-23"),
         desc: String::new(),
     };
-    for with_events in [false, true] {
+    for (events, expected_events) in [
+        (Vec::new(), ""),
+        (
+            vec![
+                events::event("first".into(), "事件一", EventKind::Memorial, "來源一"),
+                events::event("second".into(), "事件二", EventKind::Supplemental, "來源二"),
+                events::event("term".into(), "寒露", EventKind::SolarTerm, ""),
+                events::event(
+                    "festival".into(),
+                    "重陽節",
+                    EventKind::LunarFestival,
+                    " \t\n",
+                ),
+            ],
+            "\n事件一〔來源一〕\n事件二〔來源二〕\n寒露\n重陽節",
+        ),
+    ] {
         for (event_error, expected_error) in [
             (None, ""),
             (Some(""), ""),
@@ -104,14 +120,7 @@ fn tooltip_joins_only_nonempty_lines() {
                     month_ganzhi: "戊戌".into(),
                     day_ganzhi: "壬戌".into(),
                     solar_term,
-                    events: if with_events {
-                        vec![
-                            events::event("first".into(), "事件一", EventKind::Memorial, "來源一"),
-                            events::event("second".into(), "事件二", EventKind::Memorial, "來源二"),
-                        ]
-                    } else {
-                        Vec::new()
-                    },
+                    events: events.clone(),
                     event_error: event_error.map(str::to_owned),
                     almanac: calendar::AlmanacAvailability::OutOfRange,
                     source: String::new(),
@@ -123,9 +132,7 @@ fn tooltip_joins_only_nonempty_lines() {
                     "列週數：2026年第42週",
                 )
                 .to_owned();
-                if with_events {
-                    expected.push_str("\n事件一〔來源一〕\n事件二〔來源二〕");
-                }
+                expected.push_str(expected_events);
                 for extra in [expected_error, expected_term] {
                     if !extra.is_empty() {
                         expected.push('\n');
@@ -215,13 +222,9 @@ fn packaged_source_fidelity_and_audited_solar_term_correction() {
         ("2026-10-23", "霜降"),
         ("2026-10-10", "國慶紀念日"),
     ] {
-        assert!(
-            provider
-                .info(date(input))
-                .events
-                .iter()
-                .any(|event| event.name == name)
-        );
+        let info = provider.info(date(input));
+        assert!(info.events.iter().any(|event| event.name == name));
+        assert!(info.tooltip().lines().any(|line| line == name));
     }
     let invalid = provider.info(date("2026-01-01"));
     assert!(invalid.lunar.is_ok());
