@@ -31,6 +31,34 @@ pub enum CalendarDisplay {
     Gregorian,
 }
 
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Serialize, Deserialize)]
+pub enum MarkerPosition {
+    TopLeft,
+    TopRight,
+}
+
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Serialize, Deserialize)]
+pub struct DateHighlight {
+    pub background: u32,
+    pub marker_position: MarkerPosition,
+}
+
+impl DateHighlight {
+    pub fn today() -> Self {
+        Self {
+            background: 0xE5EDF1,
+            marker_position: MarkerPosition::TopLeft,
+        }
+    }
+
+    pub fn memo() -> Self {
+        Self {
+            background: 0xFFF2CC,
+            marker_position: MarkerPosition::TopRight,
+        }
+    }
+}
+
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct Settings {
     pub version: u32,
@@ -41,6 +69,10 @@ pub struct Settings {
     pub window_position: Option<[f32; 2]>,
     pub header_asset: Option<String>,
     pub supplemental_events: bool,
+    #[serde(default = "DateHighlight::today")]
+    pub today_highlight: DateHighlight,
+    #[serde(default = "DateHighlight::memo")]
+    pub memo_highlight: DateHighlight,
 }
 
 impl Default for Settings {
@@ -54,6 +86,8 @@ impl Default for Settings {
             window_position: None,
             header_asset: None,
             supplemental_events: false,
+            today_highlight: DateHighlight::today(),
+            memo_highlight: DateHighlight::memo(),
         }
     }
 }
@@ -65,7 +99,16 @@ impl Settings {
             self.zoom.is_finite() && (0.75..=2.0).contains(&self.zoom),
             "設定縮放值無效"
         );
-        ensure!(self.colors.iter().all(|c| *c <= 0xFFFFFF), "設定顏色無效");
+        ensure!(
+            self.colors
+                .iter()
+                .chain([
+                    &self.today_highlight.background,
+                    &self.memo_highlight.background,
+                ])
+                .all(|c| *c <= 0xFFFFFF),
+            "設定顏色無效"
+        );
         if let Some(position) = self.window_position {
             ensure!(position.iter().all(|v| v.is_finite()), "視窗座標無效");
         }

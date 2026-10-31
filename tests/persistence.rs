@@ -1,7 +1,7 @@
 use calendar_rust::{
     app::Session,
     migration::{self, Conflict},
-    storage::{self, MemoRepository, Settings, Store},
+    storage::{self, DateHighlight, MarkerPosition, MemoRepository, Settings, Store},
 };
 use chrono::NaiveDate;
 use std::{
@@ -35,6 +35,14 @@ fn backup_uses_live_wal_snapshot_and_restores_memos_images_settings() {
     store.set_daily_asset(day, Some(&id)).unwrap();
     let settings = Settings {
         header_asset: Some(id.clone()),
+        today_highlight: DateHighlight {
+            background: 0x123456,
+            marker_position: MarkerPosition::TopRight,
+        },
+        memo_highlight: DateHighlight {
+            background: 0xABCDEF,
+            marker_position: MarkerPosition::TopLeft,
+        },
         ..Settings::default()
     };
     store.save_settings(&settings).unwrap();
@@ -45,17 +53,127 @@ fn backup_uses_live_wal_snapshot_and_restores_memos_images_settings() {
     assert_eq!(verified.images, 1);
     store.save_memo(day, "新內容").unwrap();
     store.set_daily_asset(day, None).unwrap();
+    store.save_settings(&Settings::default()).unwrap();
     let safety = store.restore(verified, "source-B").unwrap();
     assert!(safety.is_file());
     assert_eq!(store.load_memo(day).unwrap(), "備份😀");
     assert_eq!(store.daily_asset(day).unwrap(), Some(id.clone()));
     assert_eq!(store.settings().unwrap().header_asset, Some(id.clone()));
     assert_eq!(
+        store.settings().unwrap().today_highlight,
+        settings.today_highlight
+    );
+    assert_eq!(
+        store.settings().unwrap().memo_highlight,
+        settings.memo_highlight
+    );
+    assert_eq!(
         std::fs::read(store.asset_path(&id).unwrap()).unwrap(),
         png()
     );
     let before = storage::verify_backup(&safety).unwrap();
     assert_eq!(before.manifest.source_version, "source-B");
+}
+
+#[test]
+fn legacy_settings_keep_existing_values_and_default_new_date_highlights() {
+    let directory = tempfile::tempdir().unwrap();
+    let store = Store::open(directory.path()).unwrap();
+    let json = serde_json::json!({
+        "version": 1,
+        "display": "Gregorian",
+        "colors": storage::DEFAULT_COLORS,
+        "zoom": 1.25,
+        "always_on_top": true,
+        "window_position": [10.0, 20.0],
+        "header_asset": null,
+        "supplemental_events": true
+    });
+    let db = rusqlite::Connection::open(directory.path().join("calendar.sqlite3")).unwrap();
+    db.execute("INSERT INTO app_settings VALUES(1,?1)", [json.to_string()])
+        .unwrap();
+    let settings = store.settings().unwrap();
+    assert_eq!(settings.display, storage::CalendarDisplay::Gregorian);
+    assert_eq!(settings.zoom, 1.25);
+    assert!(settings.always_on_top && settings.supplemental_events);
+    assert_eq!(settings.window_position, Some([10.0, 20.0]));
+    assert_eq!(settings.today_highlight.background, 0xE5EDF1);
+    assert_eq!(
+        settings.today_highlight.marker_position,
+        MarkerPosition::TopLeft
+    );
+    assert_eq!(settings.memo_highlight.background, 0xFFF2CC);
+    assert_eq!(
+        settings.memo_highlight.marker_position,
+        MarkerPosition::TopRight
+    );
+}
+
+#[test]
+fn date_highlights_persist_and_invalid_values_are_not_replaced_with_defaults() {
+    let directory = tempfile::tempdir().unwrap();
+    let settings = Settings {
+        today_highlight: DateHighlight {
+            background: 0xFFFFFF,
+            marker_position: MarkerPosition::TopRight,
+        },
+        memo_highlight: DateHighlight {
+            background: 0,
+            marker_position: MarkerPosition::TopLeft,
+        },
+        ..Settings::default()
+    };
+    {
+        let mut store = Store::open(directory.path()).unwrap();
+        store.save_settings(&settings).unwrap();
+    }
+    let mut store = Store::open(directory.path()).unwrap();
+    assert_eq!(
+        store.settings().unwrap().today_highlight,
+        settings.today_highlight
+    );
+    assert_eq!(
+        store.settings().unwrap().memo_highlight,
+        settings.memo_highlight
+    );
+    for today in [false, true] {
+        let mut invalid = settings.clone();
+        if today {
+            invalid.today_highlight.background = 0x1000000;
+        } else {
+            invalid.memo_highlight.background = 0x1000000;
+        }
+        assert!(store.save_settings(&invalid).is_err());
+        assert_eq!(
+            store.settings().unwrap().today_highlight,
+            settings.today_highlight
+        );
+        assert_eq!(
+            store.settings().unwrap().memo_highlight,
+            settings.memo_highlight
+        );
+    }
+    let db = rusqlite::Connection::open(directory.path().join("calendar.sqlite3")).unwrap();
+    for invalid in [
+        serde_json::json!({"background": 0x123456, "marker_position": "BottomLeft"}),
+        serde_json::json!({"background": 0x1000000, "marker_position": "TopRight"}),
+        serde_json::json!({"marker_position": "TopRight"}),
+    ] {
+        let mut json = serde_json::to_value(&settings).unwrap();
+        json["today_highlight"] = invalid;
+        let body = json.to_string();
+        db.execute("UPDATE app_settings SET body=?1 WHERE id=1", [&body])
+            .unwrap();
+        assert!(store.settings().is_err());
+        assert_eq!(
+            db.query_row("SELECT body FROM app_settings WHERE id=1", [], |row| row
+                .get::<_, String>(
+                0
+            ))
+            .unwrap(),
+            body
+        );
+    }
 }
 
 #[test]

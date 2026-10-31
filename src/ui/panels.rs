@@ -2,7 +2,7 @@ use super::*;
 use crate::{
     app::SaveState,
     calendar::{WEEKDAY_EN, WEEKDAYS},
-    storage::CalendarDisplay,
+    storage::{CalendarDisplay, MarkerPosition},
 };
 use chrono::Timelike;
 use egui::{
@@ -27,6 +27,60 @@ fn panel(ui: &Ui, rect: Rect, fill: Color32) {
     ui.painter().rect_filled(rect, 0.0, fill);
     ui.painter()
         .rect_stroke(rect, 0.0, Stroke::new(1.0_f32, BORDER), StrokeKind::Inside);
+}
+
+fn date_background(
+    settings: &Settings,
+    today: bool,
+    has_memo: bool,
+    selected: bool,
+) -> Option<Color32> {
+    if today {
+        Some(rgb_color(settings.today_highlight.background))
+    } else if has_memo {
+        Some(rgb_color(settings.memo_highlight.background))
+    } else if selected {
+        Some(SELECT)
+    } else {
+        None
+    }
+}
+
+fn marker_position(cell: Rect, position: MarkerPosition, inset: f32) -> Pos2 {
+    pos2(
+        match position {
+            MarkerPosition::TopLeft => cell.min.x + inset,
+            MarkerPosition::TopRight => cell.max.x - inset,
+        },
+        cell.min.y + inset,
+    )
+}
+
+fn date_markers(
+    painter: &egui::Painter,
+    cell: Rect,
+    settings: &Settings,
+    today: bool,
+    has_memo: bool,
+    inset: f32,
+    radius: f32,
+) {
+    if today {
+        painter.circle_filled(
+            marker_position(cell, settings.today_highlight.marker_position, inset),
+            radius,
+            TODAY_MARK,
+        );
+    }
+    if has_memo {
+        let mut position = marker_position(cell, settings.memo_highlight.marker_position, inset);
+        if today
+            && settings.today_highlight.marker_position == settings.memo_highlight.marker_position
+        {
+            position.y += 2.0 * radius + 1.0;
+        }
+        painter.circle_filled(position, radius, MEMO_MARK);
+    }
 }
 
 impl CalendarApp {
@@ -126,9 +180,6 @@ impl CalendarApp {
                     {
                         self.action = Some(Action::Mode(mode));
                     }
-                }
-                if ui.button("設定").clicked() {
-                    self.action = Some(Action::Tools);
                 }
             },
         );
@@ -383,21 +434,21 @@ impl CalendarApp {
             if response.gained_focus() {
                 response.scroll_to_me(Some(egui::Align::Center));
             }
-            if selected {
-                ui.painter().rect_filled(cell.shrink(1.0), 0.0, SELECT);
-                ui.painter().rect_stroke(
-                    cell.shrink(1.0),
-                    0.0,
-                    Stroke::new(2.0_f32, Color32::from_rgb(0x69, 0x8E, 0x9E)),
-                    StrokeKind::Inside,
-                );
-            } else if has_memo {
-                ui.painter().rect_filled(cell.shrink(1.0), 0.0, MEMO_BG);
+            if let Some(background) = date_background(&self.settings, today, has_memo, selected) {
+                ui.painter().rect_filled(cell.shrink(1.0), 0.0, background);
             } else if response.hovered() {
                 ui.painter().rect_filled(
                     cell.shrink(1.0),
                     0.0,
                     Color32::from_rgb(0xED, 0xF2, 0xF2),
+                );
+            }
+            if selected {
+                ui.painter().rect_stroke(
+                    cell.shrink(1.0),
+                    0.0,
+                    Stroke::new(2.0_f32, Color32::from_rgb(0x69, 0x8E, 0x9E)),
+                    StrokeKind::Inside,
                 );
             }
             if response.has_focus() {
@@ -442,16 +493,7 @@ impl CalendarApp {
                 FontId::proportional(12.0),
                 event_color,
             );
-            if today {
-                p.circle_filled(
-                    cell.min + vec2(8.0, 8.0),
-                    3.0,
-                    Color32::from_rgb(0x95, 0x61, 0x3B),
-                );
-            }
-            if has_memo {
-                p.circle_filled(pos2(cell.max.x - 8.0, cell.min.y + 8.0), 3.0, MEMO_MARK);
-            }
+            date_markers(&p, cell, &self.settings, today, has_memo, 8.0, 3.0);
             if response.clicked() {
                 response.request_focus();
                 self.action = Some(Action::Select(info.date));
@@ -683,6 +725,8 @@ impl CalendarApp {
                 vec2(width, 28.0),
             );
             let response = ui.interact(cell, egui::Id::new(("strip", date)), Sense::click());
+            let selected = date == self.session.selected;
+            let today = date == self.session.today;
             let has_memo = self.session.has_memo(date);
             let mut tooltip = format!("{date} · 列星期四 ISO 週 {:?}", calendar::row_week(date));
             if has_memo {
@@ -691,24 +735,26 @@ impl CalendarApp {
             response.widget_info(|| {
                 egui::WidgetInfo::labeled(egui::WidgetType::Button, true, &tooltip)
             });
-            if date == self.session.selected {
-                ui.painter().rect_filled(cell.shrink(1.0), 0.0, SELECT);
+            if let Some(background) = date_background(&self.settings, today, has_memo, selected) {
+                ui.painter().rect_filled(cell.shrink(1.0), 0.0, background);
+            }
+            if selected {
                 ui.painter().rect_stroke(
                     cell.shrink(1.0),
                     0.0,
                     Stroke::new(1.5_f32, INK),
                     StrokeKind::Inside,
                 );
-            } else if has_memo {
-                ui.painter().rect_filled(cell.shrink(1.0), 0.0, MEMO_BG);
             }
-            if has_memo {
-                ui.painter().circle_filled(
-                    pos2(cell.max.x - 4.0, cell.min.y + 4.0),
-                    2.0,
-                    MEMO_MARK,
-                );
-            }
+            date_markers(
+                ui.painter(),
+                cell,
+                &self.settings,
+                today,
+                has_memo,
+                4.0,
+                2.0,
+            );
             text(
                 ui,
                 cell.center() - vec2(0.0, 5.0),
@@ -760,6 +806,9 @@ impl CalendarApp {
                     if ui.button("輸出年曆").clicked() {
                         self.action = Some(Action::Mode(ViewMode::YearExport));
                     }
+                    if ui.button("設定").clicked() {
+                        self.action = Some(Action::Tools);
+                    }
                     if ui.button("說明").clicked() {
                         self.action = Some(Action::Help);
                     }
@@ -802,4 +851,90 @@ fn month_english(month: u32) -> &'static str {
         "NOVEMBER",
         "DECEMBER",
     ][month as usize - 1]
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn date_backgrounds_use_today_then_memo_before_selection() {
+        let mut settings = Settings::default();
+        settings.today_highlight.background = 0x123456;
+        settings.memo_highlight.background = 0xABCDEF;
+        for selected in [false, true] {
+            for has_memo in [false, true] {
+                assert_eq!(
+                    date_background(&settings, true, has_memo, selected),
+                    Some(rgb_color(0x123456))
+                );
+            }
+            assert_eq!(
+                date_background(&settings, false, true, selected),
+                Some(rgb_color(0xABCDEF))
+            );
+        }
+        assert_eq!(date_background(&settings, false, false, true), Some(SELECT));
+        assert_eq!(date_background(&settings, false, false, false), None);
+    }
+
+    #[test]
+    fn date_markers_use_independent_corners_and_do_not_overlap() {
+        for (size, inset, radius) in [(vec2(75.0, 54.0), 8.0, 3.0), (vec2(27.0, 28.0), 4.0, 2.0)] {
+            let cell = Rect::from_min_size(pos2(20.0, 30.0), size);
+            for today_corner in [MarkerPosition::TopLeft, MarkerPosition::TopRight] {
+                for memo_corner in [MarkerPosition::TopLeft, MarkerPosition::TopRight] {
+                    let mut settings = Settings::default();
+                    settings.today_highlight.marker_position = today_corner;
+                    settings.memo_highlight.marker_position = memo_corner;
+                    for (today, has_memo) in
+                        [(false, false), (true, false), (false, true), (true, true)]
+                    {
+                        let ctx = egui::Context::default();
+                        let output = ctx.run(egui::RawInput::default(), |ctx| {
+                            date_markers(
+                                &ctx.layer_painter(egui::LayerId::background()),
+                                cell,
+                                &settings,
+                                today,
+                                has_memo,
+                                inset,
+                                radius,
+                            );
+                        });
+                        let circles = output
+                            .shapes
+                            .into_iter()
+                            .filter_map(|shape| match shape.shape {
+                                egui::Shape::Circle(circle) => Some(circle),
+                                _ => None,
+                            })
+                            .collect::<Vec<_>>();
+                        assert_eq!(circles.len(), usize::from(today) + usize::from(has_memo));
+                        for circle in &circles {
+                            let corner = if circle.fill == TODAY_MARK {
+                                today_corner
+                            } else {
+                                assert_eq!(circle.fill, MEMO_MARK);
+                                memo_corner
+                            };
+                            assert_eq!(
+                                circle.center.x,
+                                if corner == MarkerPosition::TopLeft {
+                                    cell.min.x + inset
+                                } else {
+                                    cell.max.x - inset
+                                }
+                            );
+                            assert!(cell.contains(circle.center - vec2(radius, radius)));
+                            assert!(cell.contains(circle.center + vec2(radius, radius)));
+                        }
+                        if today && has_memo {
+                            assert!(circles[0].center.distance(circles[1].center) > 2.0 * radius);
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

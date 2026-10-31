@@ -57,12 +57,12 @@ fn xlsx_contents_include_all_dates_sources_styles_print_setup_and_no_external_li
         // OOXML defaults both dimensions to one; the writer omits default attributes.
         assert!(!sheet.contains("fitToWidth="));
         assert!(!sheet.contains("fitToHeight="));
+        assert!(sheet.contains("節日／紀念日不等於現行法定休假"));
         let sources = entry(&mut archive, "xl/worksheets/sheet2.xml");
         assert_eq!(sources.matches("<row ").count(), count + 13);
         let strings = entry(&mut archive, "xl/sharedStrings.xml");
         assert!(strings.contains(&format!("{year}-01-01")));
         assert!(strings.contains(&format!("{year}-12-31")));
-        assert!(strings.contains("節日／紀念日不等於現行法定休假"));
         if year == 2028 {
             assert!(strings.contains("2028-02-29"));
         }

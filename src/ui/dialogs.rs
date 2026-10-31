@@ -38,7 +38,7 @@ impl CalendarApp {
             egui::Window::new("CalendarRust 離線說明").open(&mut self.help).default_width(560.0).vscroll(true).show(ctx, |ui| {
                 ui.heading("操作");
                 ui.label("上方選年月，右緣按鈕切年／月或回今天。日期格及底部日期帶共用選日命令。\n今天卡片與時鐘不隨選日改變。左下事件、右下備忘、日曆圖片及農民曆均屬於選日。");
-                ui.label("月曆及下方日期帶以淡黃色底及右上圓點表示該日已有保存的備忘，月曆包含相鄰月份日期；選日保留原外框與備忘圓點，月曆的今天仍以左上圓點標示。清空並保存後會移除備忘標示。");
+                ui.label("月曆及下方日期帶標示今天與已有保存備忘的日期，包含月曆的相鄰月份日期；設定可分別自訂底色及左上／右上圓圈位置。今天底色優先，選日保留外框；兩種圓圈同角落時錯開。清空並保存後會移除備忘標示。");
                 ui.label("備忘停止輸入 1 秒後保存；失焦、切日／月／模式、Ctrl+S、離開時立即保存。清空會刪除，純空白仍保存。\n失敗時保留草稿並阻擋切換，可重試、另存草稿，或明確放棄修改。");
                 ui.label("Tab 移動焦點，日期格方向鍵移動焦點，Enter／空白選日；備忘內保留文字游標及 Ctrl+A。\nCtrl+F1/F2 上／下一年，Ctrl+F3/F4 上／下一月，Ctrl+F5 今天，Ctrl+F6 曆別，Ctrl+F7 月／日曆，Ctrl+T 置頂，Ctrl+I 說明，Ctrl+A 關於，Ctrl+Q 離開。");
                 ui.label("設定的介面縮放會同步等比調整主視窗，啟動及還原設定時也會套用；超過螢幕可用範圍時限制視窗大小，內容可水平／垂直捲動。\n圖片支援 JPEG/BMP/ICO/PNG，Windows WMF/EMF 靜態轉換；不會刪外部原圖。\n輸出年曆可選七色及獨立抬頭圖，不需 Excel。匯出可取消且只在成功後提交目的檔。");
@@ -242,6 +242,7 @@ impl CalendarApp {
         egui::Window::new("設定／資料管理")
             .open(&mut open)
             .default_width(540.0)
+            .vscroll(true)
             .show(ctx, |ui| {
                 let mut changed = false;
                 changed |= ui
@@ -270,6 +271,12 @@ impl CalendarApp {
                         self.error = Some(format!("{error:#}"));
                     }
                 }
+                ui.separator();
+                ui.heading("日期標示");
+                changed |= date_highlight_controls(ui, "今天", &mut self.settings.today_highlight);
+                changed |=
+                    date_highlight_controls(ui, "有備忘的日期", &mut self.settings.memo_highlight);
+                ui.label("今天同時有備忘時，今天底色優先；同角落的圓圈會錯開，選日外框仍保留。");
                 if changed && let Err(error) = self.persist_settings() {
                     self.error = Some(format!("設定未保存：{error:#}"));
                 }
@@ -408,14 +415,7 @@ impl CalendarApp {
                     let mut changed = false;
                     for (i, name) in COLOR_NAMES.iter().enumerate() {
                         ui.label(RichText::new(*name).size(11.0));
-                        let color = self.settings.colors[i];
-                        let mut rgb = [(color >> 16) as u8, (color >> 8) as u8, color as u8];
-                        if ui.color_edit_button_srgb(&mut rgb).changed() {
-                            self.settings.colors[i] = u32::from(rgb[0]) << 16
-                                | u32::from(rgb[1]) << 8
-                                | u32::from(rgb[2]);
-                            changed = true;
-                        }
+                        changed |= edit_rgb_color(ui, &mut self.settings.colors[i]);
                     }
                     if ui.button("還原七色預設").clicked() {
                         self.settings.colors = storage::DEFAULT_COLORS;
@@ -862,8 +862,46 @@ fn list(ui: &mut egui::Ui, label: &str, values: &[String]) {
     ));
 }
 
-fn rgb_color(value: u32) -> Color32 {
-    Color32::from_rgb((value >> 16) as u8, (value >> 8) as u8, value as u8)
+fn edit_rgb_color(ui: &mut egui::Ui, color: &mut u32) -> bool {
+    let mut rgb = [(*color >> 16) as u8, (*color >> 8) as u8, *color as u8];
+    if ui.color_edit_button_srgb(&mut rgb).changed() {
+        *color = u32::from(rgb[0]) << 16 | u32::from(rgb[1]) << 8 | u32::from(rgb[2]);
+        true
+    } else {
+        false
+    }
+}
+
+fn date_highlight_controls(
+    ui: &mut egui::Ui,
+    label: &str,
+    highlight: &mut storage::DateHighlight,
+) -> bool {
+    ui.group(|ui| {
+        ui.label(RichText::new(label).strong());
+        ui.horizontal(|ui| {
+            ui.label("底色");
+            let mut changed = edit_rgb_color(ui, &mut highlight.background);
+            ui.label("圓圈位置");
+            changed |= ui
+                .radio_value(
+                    &mut highlight.marker_position,
+                    storage::MarkerPosition::TopLeft,
+                    "左上",
+                )
+                .changed();
+            changed |= ui
+                .radio_value(
+                    &mut highlight.marker_position,
+                    storage::MarkerPosition::TopRight,
+                    "右上",
+                )
+                .changed();
+            changed
+        })
+        .inner
+    })
+    .inner
 }
 
 fn atomic_text(path: &Path, text: &str) -> Result<()> {
@@ -872,4 +910,100 @@ fn atomic_text(path: &Path, text: &str) -> Result<()> {
     temporary.as_file().sync_all()?;
     temporary.persist(path)?;
     Ok(())
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    fn controls_frame(
+        ctx: &egui::Context,
+        settings: &mut Settings,
+        events: Vec<egui::Event>,
+    ) -> (bool, Vec<(String, egui::Pos2)>) {
+        let mut changed = false;
+        let output = ctx.run(
+            egui::RawInput {
+                screen_rect: Some(egui::Rect::from_min_size(
+                    egui::Pos2::ZERO,
+                    vec2(800.0, 600.0),
+                )),
+                events,
+                ..Default::default()
+            },
+            |ctx| {
+                egui::CentralPanel::default().show(ctx, |ui| {
+                    changed |= date_highlight_controls(ui, "今天", &mut settings.today_highlight);
+                    changed |=
+                        date_highlight_controls(ui, "有備忘的日期", &mut settings.memo_highlight);
+                });
+            },
+        );
+        let buttons = output
+            .shapes
+            .into_iter()
+            .filter_map(|shape| match shape.shape {
+                egui::Shape::Text(text)
+                    if matches!(text.galley.job.text.as_str(), "左上" | "右上") =>
+                {
+                    Some((
+                        text.galley.job.text.clone(),
+                        text.pos + text.galley.size() / 2.0,
+                    ))
+                }
+                _ => None,
+            })
+            .collect();
+        (changed, buttons)
+    }
+
+    #[test]
+    fn corner_controls_change_today_and_memo_independently() {
+        let ctx = egui::Context::default();
+        let mut settings = Settings::default();
+        settings.today_highlight.background = 0x123456;
+        settings.memo_highlight.background = 0xABCDEF;
+        let (changed, buttons) = controls_frame(&ctx, &mut settings, Vec::new());
+        assert!(!changed);
+        let today_right = buttons.iter().find(|(name, _)| name == "右上").unwrap().1;
+        let memo_left = buttons
+            .iter()
+            .filter(|(name, _)| name == "左上")
+            .nth(1)
+            .unwrap()
+            .1;
+        for (position, today_corner, memo_corner) in [
+            (
+                today_right,
+                storage::MarkerPosition::TopRight,
+                storage::MarkerPosition::TopRight,
+            ),
+            (
+                memo_left,
+                storage::MarkerPosition::TopRight,
+                storage::MarkerPosition::TopLeft,
+            ),
+        ] {
+            for pressed in [true, false] {
+                let (changed, _) = controls_frame(
+                    &ctx,
+                    &mut settings,
+                    vec![
+                        egui::Event::PointerMoved(position),
+                        egui::Event::PointerButton {
+                            pos: position,
+                            button: egui::PointerButton::Primary,
+                            pressed,
+                            modifiers: egui::Modifiers::NONE,
+                        },
+                    ],
+                );
+                assert_eq!(changed, !pressed);
+            }
+            assert_eq!(settings.today_highlight.marker_position, today_corner);
+            assert_eq!(settings.memo_highlight.marker_position, memo_corner);
+            assert_eq!(settings.today_highlight.background, 0x123456);
+            assert_eq!(settings.memo_highlight.background, 0xABCDEF);
+        }
+    }
 }

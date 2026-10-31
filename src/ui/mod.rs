@@ -18,12 +18,16 @@ pub(super) const PAPER: Color32 = Color32::from_rgb(0xF9, 0xFB, 0xFA);
 pub(super) const INK: Color32 = Color32::from_rgb(0x32, 0x5A, 0x6B);
 pub(super) const BORDER: Color32 = Color32::from_rgb(0xBD, 0xC9, 0xCA);
 pub(super) const SELECT: Color32 = Color32::from_rgb(0xE5, 0xED, 0xF1);
-pub(super) const MEMO_BG: Color32 = Color32::from_rgb(0xFF, 0xF2, 0xCC);
+pub(super) const TODAY_MARK: Color32 = Color32::from_rgb(0x95, 0x61, 0x3B);
 pub(super) const MEMO_MARK: Color32 = Color32::from_rgb(0xA5, 0x6A, 0x16);
 pub(super) const RED: Color32 = Color32::from_rgb(0xB8, 0x33, 0x29);
 pub(super) const GREEN: Color32 = Color32::from_rgb(0x35, 0x78, 0x38);
 const LAYOUT_SIZE: egui::Vec2 = egui::vec2(840.0, 640.0);
 const APP_ICON_PNG: &[u8] = include_bytes!("..\\..\\assets\\icons\\512.png");
+
+fn rgb_color(value: u32) -> Color32 {
+    Color32::from_rgb((value >> 16) as u8, (value >> 8) as u8, value as u8)
+}
 
 #[derive(Default)]
 struct WindowSizing {
