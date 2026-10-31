@@ -2,11 +2,11 @@
 
 依 `pcalendar-rust-spec.md` 0.5 實作的獨立 Rust Windows 桌面年曆。產品名稱與主程式皆為 **CalendarRust**；不是原 pCalendar 作者／工房或擇日知錄發行的版本。
 
-**目前為 0.1.0 候選版，尚未宣告 M5／全部人工驗收通過。** 已實作本輪 P0／P1 功能；下方列明相容性差異及仍需目標電腦驗收的項目。
+**目前發佈版本為 1.0.0，尚未宣告 M5／全部人工驗收通過。** 已實作本輪 P0／P1 功能；下方列明相容性差異及仍需目標電腦驗收的項目。
 
 ## 啟動與資料
 
-解壓完整 `CalendarRust-0.1.0-windows-x64.zip`，雙擊其中的 `CalendarRust.exe`。請保留旁邊的 `assets`、`licenses` 與本文件，不能只複製 EXE。唯讀資源相對於執行檔解析，不依賴工作目錄、原 LunarData 目錄、Python、Office、Rust 或 Cargo。
+解壓完整 `CalendarRust-1.0.0-windows-x64.zip`，雙擊其中的 `CalendarRust.exe`。請保留旁邊的 `assets`、`licenses` 與本文件，不能只複製 EXE。唯讀資源相對於執行檔解析，不依賴工作目錄、原 LunarData 目錄、Python、Office、Rust 或 Cargo。
 
 目標環境為 Windows 11 x64。使用本機已安裝的微軟正黑體／新細明體及 Segoe UI Emoji，不下載或散布 Windows 字型；缺少繁中文字型時會明示錯誤，請安裝 Windows 繁體中文補充字型。程式以靜態 MSVC CRT 建置，無安裝程式、尚未簽章，Windows SmartScreen 可能提出未知發行者警告。
 
@@ -101,7 +101,7 @@ cargo run --locked --bin CalendarRust -- --resources . --data-dir '.\target\dev-
 .\scripts\package.ps1
 ```
 
-此腳本執行檢查、核對固定版本授權、建 Release、驗證 x64／PE32+／GUI subsystem，產生 `dist\CalendarRust-0.1.0-windows-x64.zip` 與同名解壓目錄，附檔案 hash。不覆蓋既有同名目錄。已附離線第三方通知；變更 lockfile 後首次重收集時，從本機 crate 及缺漏項目的固定上游 Git revision 取得通知，需要 `gh` 與網路。程式本身不連網。
+此腳本執行檢查、核對固定版本授權、建 Release、驗證 x64／PE32+／GUI subsystem，產生 `dist\CalendarRust-1.0.0-windows-x64.zip` 與同名解壓目錄，附檔案 hash。不覆蓋既有同名目錄。已附離線第三方通知；變更 lockfile 後首次重收集時，從本機 crate 及缺漏項目的固定上游 Git revision 取得通知，需要 `gh` 與網路。程式本身不連網。
 
 只有要重新生成來源包時才需要獨立的 LunarData 快照；Python 僅用於更新開發 fixture：
 
@@ -128,7 +128,7 @@ cargo run --locked --bin CalendarRust -- --resources . --data-dir '.\target\scre
 
 | 項目 | 結果 |
 |---|---|
-| Rust 核心／整合測試 | 22 項通過；格式與 strict Clippy 通過 |
+| Rust 核心／整合測試 | 37 項通過；格式與 strict Clippy 通過 |
 | 核准 HKO 基準 | 50,770 日；農曆／閏月／歲次／生肖差異 0，節氣事件差異 0，不可用節氣 0 |
 | Release 原生畫面 | 月曆、日曆、真實一月匯出預覽；今天 14／選日 10 分離；繁中與 emoji 備忘可顯示 |
 | 農民曆 | 實際點選後另開含選日日期的原生視窗，正常保存及關閉 |
@@ -145,4 +145,4 @@ cargo run --locked --bin CalendarRust -- --resources . --data-dir '.\target\scre
 - 參考機 NFR-02 至 NFR-05 的完整 UI 啟動／100 次互動、60 秒 CPU／working set、5 次匯出量測。
 - 未安裝開發工具／Office 的乾淨 Windows 11 x64，解壓後雙擊、不同工作目錄及斷網啟動。
 
-未完成的人工項目不是已通過；本候選版不宣告規格全部發布門檻結案。
+未完成的人工項目不是已通過；本版不宣告規格全部發布門檻結案。
